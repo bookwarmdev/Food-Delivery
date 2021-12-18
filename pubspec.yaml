@@ -104,11 +104,11 @@ flutter:
 
     - family: Inter
       fonts:
-        - asset: fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-Variable.ttf
         
     - family: Viga
       fonts:
-        - asset: fonts/Viga-Regular.ttf
+        - asset: assets/fonts/Viga-Regular.ttf
          
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
