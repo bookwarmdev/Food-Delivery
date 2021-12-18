@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_delivery/utils/colors.dart'; 
 import 'package:food_delivery/utils/widget/bottom_nav.dart';
 import 'package:food_delivery/views/buy/buy_screen.dart';
+import 'package:food_delivery/views/home/views/home_screen.dart';
 import 'package:food_delivery/views/profile/profile_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeState createState() => _HomeState();
 }
 
 enum BottomIcon { Home, Profile, Buy, Chat }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeState extends State<Home> {
   BottomIcon bottomIcon = BottomIcon.Home;
 
   @override
@@ -24,13 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: [
             if (bottomIcon == BottomIcon.Home) ...[
-              Text('Home'),
+              const HomeScreen(),
             ] else if (bottomIcon == BottomIcon.Profile) ...[
               const ProfileScreen(),
             ] else if (bottomIcon == BottomIcon.Buy) ...[
               const BuyScreen(),
             ] else if (bottomIcon == BottomIcon.Chat) ...[
-              Text('chat'),
+              const Text('chat'),
             ],
             Align(
               alignment: Alignment.bottomLeft,

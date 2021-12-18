@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/home/home_screen.dart';
+import 'package:food_delivery/views/home/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: const Home(),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
