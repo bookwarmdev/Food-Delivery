@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/home/home_screen.dart';
 import 'package:food_delivery/views/onbording/onbording3_screen.dart';
 import 'package:food_delivery/views/auth/signup_screen.dart';
 

@@ -18,7 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
             body: Stack(
               children: [
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/images/Pattern.png"),
                           fit: BoxFit.cover)),
@@ -28,16 +28,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image(image: AssetImage("assets/images/Logo.png")),
-                        Text('Food Ninja',
+                        const Image(
+                            image: AssetImage("assets/images/Logo.png")),
+                        const Text('Food Ninja',
                             style: TextStyle(
                                 color: Colors.green,
                                 fontSize: 45,
                                 fontFamily: 'Viga')),
-                        Text('Deliver Favourite Food',
+                        const Text('Deliver Favourite Food',
                             style: TextStyle(fontFamily: 'Inter')),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 17),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 17),
                           child: Text('Login To Your Account',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 25)),
