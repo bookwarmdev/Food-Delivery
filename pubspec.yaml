@@ -63,8 +63,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/images/
-    - assets/icons/
+    - assets/images/illustartion.png
+    - assets/images/Pattern.png
+    - assets/images/illustration.png
+    - assets/icons/facebook.png
+    - assets/icons/google-icon.png
     - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -89,8 +92,8 @@ flutter:
         
    - family: BentosSans Bold
      fonts:
-       - asset: font/BentonSans Bold.otf
-       - asset: font/BentonSans Medium.otf
+       - asset: fonts/BentonSans Bold.otf
+       - asset: fonts/BentonSans Medium.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

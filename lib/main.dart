@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/home/home_screen.dart';
+import 'package:food_delivery/views/onbording/onbording3_screen.dart';
+import 'package:food_delivery/views/auth/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: SignupScreen()
+        // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        );
   }
 }
 
