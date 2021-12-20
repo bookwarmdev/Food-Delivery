@@ -4,13 +4,15 @@ import 'package:food_delivery/utils/ui.dart';
 class BottomNav extends StatelessWidget {
   VoidCallback onPressed;
   bool bottomIcon;
-  String text, activeImagePath; 
+  String text, activeImagePath;
+  // String imagePath;
   Widget widget;
   Widget iconWidget;
   BottomNav({
     Key? key,
     required this.onPressed,
-    required this.bottomIcon, 
+    required this.bottomIcon,
+    // required this.imagePath,
     required this.activeImagePath,
     required this.text,
     required this.widget,
@@ -44,7 +46,8 @@ class BottomNav extends StatelessWidget {
                 widget,
               ],
             )
-          : iconWidget, 
+          : iconWidget,
+      // : Image.asset(activeImagePath),
     );
   }
 }

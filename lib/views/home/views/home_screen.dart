@@ -2,11 +2,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/fonts.dart';
-import 'package:food_delivery/views/home/widget/favorite_food.dart';
+import 'package:food_delivery/utils/ui.dart';
+import 'package:food_delivery/views/home/widget/favorite_food.dart'; 
 import 'package:food_delivery/views/home/widget/menu_list.dart';
 import 'package:food_delivery/views/home/widget/resturant_list.dart';
-import 'package:food_delivery/views/home/widget/search.dart';
+import 'package:food_delivery/views/home/widget/search.dart'; 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

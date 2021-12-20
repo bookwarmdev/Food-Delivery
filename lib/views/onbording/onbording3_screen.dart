@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/onbording/onbording1_screen.dart';
-import 'package:food_delivery/views/onbording/onbording3_screen.dart';
+import 'package:food_delivery/views/onbording/onbording2_screen.dart';
 
-class Onbording2Screen extends StatefulWidget {
-  Onbording2Screen({Key? key}) : super(key: key);
+class onbording3Screen extends StatefulWidget {
+  const onbording3Screen({Key? key}) : super(key: key);
 
   @override
-  _Onbording2ScreenState createState() => _Onbording2ScreenState();
+  _onbording3ScreenState createState() => _onbording3ScreenState();
 }
 
-class _Onbording2ScreenState extends State<Onbording2Screen> {
+class _onbording3ScreenState extends State<onbording3Screen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,13 +23,13 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               width: 400,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/illustartion.png"),
+                      image: AssetImage("assets/images/illustration.png"),
                       fit: BoxFit.cover)),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Text(
-                'Find your Comfort \n Food here',
+                'Food Ninja is Where your \n Confort Food Lives',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
             Padding(
               padding: const EdgeInsets.only(top: 25),
               child: Text(
-                'Here you can find a Chef for every \n taste and color. Enjoy!',
+                'Enjoy a fast and smooth delivery at \n your doorstep',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 15, letterSpacing: 1.5),
               ),

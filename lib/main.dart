@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/auth/singup_screen.dart';
-import 'views/home/home.dart'; 
+
+import 'views/home/home.dart';
+import 'views/onbording/onbording1_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Food Delivery',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Home(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Home(),
+        );
   }
 }
