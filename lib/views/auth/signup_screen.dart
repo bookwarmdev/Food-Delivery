@@ -12,7 +12,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
             body: Stack(
               children: [
                 Container(
