@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/home/home.dart';
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  _LogInScreenState createState() => _LogInScreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,7 +37,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             style: TextStyle(fontFamily: 'Inter')),
                         const Padding(
                           padding: EdgeInsets.only(top: 17),
-                          child: Text('Sign Up For Free',
+                          child: Text('Login To Your Account',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 25)),
                         ),
@@ -148,28 +147,23 @@ class _LogInScreenState extends State<LogInScreen> {
                                   color: Colors.green,
                                   decoration: TextDecoration.underline)),
                         ),
-                        GestureDetector(
-                          onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Home(),),);
-                },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 23),
-                            child: Container(
-                              height: 60,
-                              width: 140,
-                              decoration: const BoxDecoration(
-                                  color: Color.fromRGBO(83, 232, 139, 1),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15))),
-                              child: const Center(
-                                  child: Text(
-                                'Login',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16),
-                              )),
-                            ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 23),
+                          child: Container(
+                            height: 60,
+                            width: 140,
+                            decoration: const BoxDecoration(
+                                color: Color.fromRGBO(83, 232, 139, 1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: const Center(
+                                child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
+                            )),
                           ),
                         )
                       ],

@@ -12,10 +12,10 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-enum BottomIcon { Home, Profile, Buy, Chat }
+enum BottomIcon { home, profile, buy, chat }
 
 class _HomeState extends State<Home> {
-  BottomIcon bottomIcon = BottomIcon.Home;
+  BottomIcon bottomIcon = BottomIcon.home;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +23,13 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: Stack(
           children: [
-            if (bottomIcon == BottomIcon.Home) ...[
+            if (bottomIcon == BottomIcon.home) ...[
               const HomeScreen(),
-            ] else if (bottomIcon == BottomIcon.Profile) ...[
+            ] else if (bottomIcon == BottomIcon.profile) ...[
               const ProfileScreen(),
-            ] else if (bottomIcon == BottomIcon.Buy) ...[
+            ] else if (bottomIcon == BottomIcon.buy) ...[
               const BuyScreen(),
-            ] else if (bottomIcon == BottomIcon.Chat) ...[
+            ] else if (bottomIcon == BottomIcon.chat) ...[
               const Text('chat'),
             ],
             Align(
@@ -57,11 +57,11 @@ class _HomeState extends State<Home> {
                       BottomNav(
                         onPressed: () {
                           setState(() {
-                            bottomIcon = BottomIcon.Home;
+                            bottomIcon = BottomIcon.home;
                           });
                         },
                         bottomIcon:
-                            bottomIcon == BottomIcon.Home ? true : false,
+                            bottomIcon == BottomIcon.home ? true : false,
                         iconWidget: Image.asset('assets/icons/Home.png'),
                         activeImagePath: 'assets/icons/Active_Home.png',
                         text: 'Home',
@@ -70,11 +70,11 @@ class _HomeState extends State<Home> {
                       BottomNav(
                         onPressed: () {
                           setState(() {
-                            bottomIcon = BottomIcon.Profile;
+                            bottomIcon = BottomIcon.profile;
                           });
                         },
                         bottomIcon:
-                            bottomIcon == BottomIcon.Profile ? true : false,
+                            bottomIcon == BottomIcon.profile ? true : false,
                         iconWidget: Image.asset('assets/icons/Profile.png'),
                         activeImagePath: 'assets/icons/Profile.png',
                         text: 'Profile',
@@ -83,15 +83,15 @@ class _HomeState extends State<Home> {
                       BottomNav(
                         onPressed: () {
                           setState(() {
-                            bottomIcon = BottomIcon.Buy;
+                            bottomIcon = BottomIcon.buy;
                           });
                         },
-                        bottomIcon: bottomIcon == BottomIcon.Buy ? true : false,
+                        bottomIcon: bottomIcon == BottomIcon.buy ? true : false,
                         iconWidget: Stack(
                           children: [ 
                             IconButton(
                               onPressed: () {
-                            bottomIcon = BottomIcon.Buy;
+                            bottomIcon = BottomIcon.buy;
 
                               },
                               icon: Image.asset('assets/icons/Buy.png'),
@@ -150,16 +150,16 @@ class _HomeState extends State<Home> {
                       BottomNav(
                         onPressed: () {
                           setState(() {
-                            bottomIcon = BottomIcon.Chat;
+                            bottomIcon = BottomIcon.chat;
                           });
                         },
                         bottomIcon:
-                            bottomIcon == BottomIcon.Chat ? true : false,
+                            bottomIcon == BottomIcon.chat ? true : false,
                         iconWidget: Stack(
                           children: [
                             IconButton(onPressed: (){
                               setState(() { 
-                            bottomIcon = BottomIcon.Chat;
+                            bottomIcon = BottomIcon.chat;
 
                               });
                             }, icon: Image.asset('assets/icons/Chat.png'),),
