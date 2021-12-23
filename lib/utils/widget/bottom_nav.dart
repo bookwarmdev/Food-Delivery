@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
 
 class BottomNav extends StatelessWidget {
-  VoidCallback onPressed;
-  bool bottomIcon;
-  String text, activeImagePath; 
-  Widget widget;
-  Widget iconWidget;
-  BottomNav({
+  final VoidCallback onPressed;
+  final bool bottomIcon;
+  final String text, activeImagePath; 
+  final Widget widget;
+  final Widget iconWidget;
+  const BottomNav({
     Key? key,
     required this.onPressed,
     required this.bottomIcon, 
@@ -27,7 +27,7 @@ class BottomNav extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     color: AppColor.kPrimaryLigth,
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
                   padding: const EdgeInsets.only(
                       right: 20.0, left: 20.0, top: 10.0, bottom: 10.0),

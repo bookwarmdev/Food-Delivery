@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart'; 
-import 'package:food_delivery/utils/widget/bottom_nav.dart';
+import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/views/buy/buy_screen.dart';
 import 'package:food_delivery/views/home/views/home_screen.dart';
 import 'package:food_delivery/views/profile/profile_screen.dart';
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(22.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     boxShadow: [
                       BoxShadow(
                         color: AppColor.kblurColor.withOpacity(0.3),
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
+                      horizontal: 20.0, vertical: 5.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -88,17 +88,16 @@ class _HomeState extends State<Home> {
                         },
                         bottomIcon: bottomIcon == BottomIcon.buy ? true : false,
                         iconWidget: Stack(
-                          children: [ 
+                          children: [
                             IconButton(
                               onPressed: () {
-                            bottomIcon = BottomIcon.buy;
-
+                                bottomIcon = BottomIcon.buy;
                               },
                               icon: Image.asset('assets/icons/Buy.png'),
                             ),
                             Positioned(
                               left: 28.0,
-                              top: 5.0,
+                              top: 10.0,
                               child: Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(
@@ -108,12 +107,13 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   color: AppColor.red,
                                 ),
-                                child: const Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                width: 15.0,
+                                height: 15.0,
+                                child: Center(
                                   child: Text(
                                     '7',
-                                    style: TextStyle(
+                                    style: AppTextStyle.kTextHeader2.copyWith(
+                                      fontSize: 10.0,
                                       color: AppColor.white,
                                     ),
                                   ),
@@ -125,7 +125,8 @@ class _HomeState extends State<Home> {
                         activeImagePath: 'assets/icons/Buy.png',
                         text: 'Buy',
                         widget: Positioned(
-                          left: 33.0,
+                          left: 35.0,
+                          top: 5.0,
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.all(
@@ -135,11 +136,13 @@ class _HomeState extends State<Home> {
                               borderRadius: BorderRadius.circular(10.0),
                               color: AppColor.red,
                             ),
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.0),
+                            width: 15.0,
+                            height: 15.0,
+                            child: Center(
                               child: Text(
                                 '7',
-                                style: TextStyle(
+                                style: AppTextStyle.kTextHeader2.copyWith(
+                                  fontSize: 10.0,
                                   color: AppColor.white,
                                 ),
                               ),
@@ -157,15 +160,17 @@ class _HomeState extends State<Home> {
                             bottomIcon == BottomIcon.chat ? true : false,
                         iconWidget: Stack(
                           children: [
-                            IconButton(onPressed: (){
-                              setState(() { 
-                            bottomIcon = BottomIcon.chat;
-
-                              });
-                            }, icon: Image.asset('assets/icons/Chat.png'),),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  bottomIcon = BottomIcon.chat;
+                                });
+                              },
+                              icon: Image.asset('assets/icons/Chat.png'),
+                            ),
                             Positioned(
-                              left: 28.0,
-                              top: 7.0,
+                              left: 25.0,
+                              top: 10.0,
                               child: Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(
@@ -175,8 +180,8 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   color: AppColor.red,
                                 ),
-                                 width: 20.0,
-                                 height: 20.0,
+                                width: 15.0,
+                                height: 15.0,
                               ),
                             ),
                           ],
@@ -184,27 +189,27 @@ class _HomeState extends State<Home> {
                         activeImagePath: 'assets/icons/Active_Chat.png',
                         text: 'Chat',
                         widget: Positioned(
-                              left: 35.0,
-                              top: 2.0,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AppColor.white,
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: AppColor.red,
-                                ),
-                                 width: 20.0,
-                                 height: 20.0,
+                          left: 35.0,
+                          top: 6.0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: AppColor.white,
+                                width: 2,
                               ),
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: AppColor.red,
                             ),
+                            width: 15.0,
+                            height: 15.0,
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

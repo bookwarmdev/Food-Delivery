@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:food_delivery/views/onbording/onbording2_screen.dart';
-import 'package:food_delivery/views/onbording/onbording3_screen.dart';
-
+import 'package:flutter/material.dart'; 
 import 'views/onbording/onbording1_screen.dart';
 
 void main() {
