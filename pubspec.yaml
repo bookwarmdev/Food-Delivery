@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2 
   flutter_svg: ^1.0.0
   animated_splash_screen: ^1.1.0
-  image_picker: ^0.6.7+6
+  image_picker: ^0.8.4+4
 
 
 dev_dependencies:
@@ -64,8 +64,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/images/Gallery.png
-    - assets/images/Group.png
+    - assets/images/Message.png
+    - assets/images/Email.png
     - assets/icons/
     - assets/svgs/
 

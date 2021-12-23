@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: TextField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                  prefixIcon: Image(
+                                  prefixIcon: const Image(
                                     image:
                                         AssetImage("assets/icons/Profile.png"),
                                   ),
@@ -72,7 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: TextField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                  prefixIcon: Image(
+                                  prefixIcon: const Image(
                                     image:
                                         AssetImage("assets/icons/Message.png"),
                                   ),
@@ -89,7 +89,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: TextField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                  prefixIcon: Image(
+                                  prefixIcon: const Image(
                                     image: AssetImage("assets/icons/Lock.png"),
                                   ),
                                   border: OutlineInputBorder(
@@ -119,25 +119,27 @@ class _SignupScreenState extends State<SignupScreen> {
                                     });
                                   },
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: Colors.green),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: const EdgeInsets.all(5),
                                       child: _value
-                                          ? Icon(
+                                          ? const Icon(
                                               Icons.check,
                                               size: 15,
                                               color: Colors.white,
                                             )
-                                          : Icon(Icons.check_box_outline_blank,
-                                              size: 15, color: Colors.green),
+                                          : const Icon(
+                                              Icons.check_box_outline_blank,
+                                              size: 15,
+                                              color: Colors.green),
                                     ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 13),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 13),
                                 child: Text(
                                   "Keep Me Signed In",
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -158,28 +160,31 @@ class _SignupScreenState extends State<SignupScreen> {
                                     });
                                   },
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: Colors.green),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: const EdgeInsets.all(5),
                                       child: _valuee
-                                          ? Icon(
+                                          ? const Icon(
                                               Icons.check,
                                               size: 15,
                                               color: Colors.white,
                                             )
-                                          : Icon(Icons.check_box_outline_blank,
-                                              size: 15, color: Colors.green),
+                                          : const Icon(
+                                              Icons.check_box_outline_blank,
+                                              size: 15,
+                                              color: Colors.green),
                                     ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 13),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 13),
                                 child: Text(
                                   "Email me About Special Pricing",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                 ),
                               )
                             ],
@@ -219,10 +224,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignProcess()),
+                                    builder: (context) => const SignProcess()),
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               'already have an account?',
                               style: TextStyle(
                                   color: Colors.green,

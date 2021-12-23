@@ -3,6 +3,7 @@ import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/views/home/home.dart';
 import 'package:food_delivery/utils/fonts.dart';
 import 'package:food_delivery/views/home/views/home_screen.dart';
+import 'package:food_delivery/views/passwords/via_methods.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -146,14 +147,24 @@ class _LogInScreenState extends State<LogInScreen> {
                             ],
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Text('Forgot Your Password?',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                  color: Colors.green,
-                                  decoration: TextDecoration.underline)),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViaMethods(),
+                              ),
+                            );
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text('Forgot Your Password?',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    color: Colors.green,
+                                    decoration: TextDecoration.underline)),
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {

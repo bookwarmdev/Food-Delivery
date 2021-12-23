@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/auth/signup_process.dart';
-import 'package:food_delivery/views/auth/upload_picture.dart';
 
-class PaymentMethod extends StatefulWidget {
-  const PaymentMethod({Key? key}) : super(key: key);
+import 'package:food_delivery/views/auth/upload_preview.dart';
+import 'package:food_delivery/views/auth/signup_success.dart';
+
+class SetLocation extends StatefulWidget {
+  const SetLocation({Key? key}) : super(key: key);
 
   @override
-  _PaymentMethod createState() => _PaymentMethod();
+  _SetLocation createState() => _SetLocation();
 }
 
-class _PaymentMethod extends State<PaymentMethod> {
+class _SetLocation extends State<SetLocation> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +29,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignProcess(),
+                      builder: (context) => const UploadPreview(),
                     ),
                   );
                 },
@@ -58,7 +59,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                       child: Padding(
                     padding: EdgeInsets.fromLTRB(30, 115, 0, 0),
                     child: Text(
-                      'Payment Method',
+                      'Set Your Location',
                       style: TextStyle(
                           fontFamily: 'BentonSans_Bold',
                           fontSize: 30,
@@ -74,73 +75,65 @@ class _PaymentMethod extends State<PaymentMethod> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  Center(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Center(
+                      child: Container(
+                        height: 130,
+                        width: 350,
+                        decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 2,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 18, 0, 0),
+                              child: Row(
+                                children: const [
+                                  Image(
+                                      image: AssetImage(
+                                          'assets/images/Pinlogo.png')),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      'Your Location',
+                                      style: TextStyle(
+                                          fontFamily: 'BentonSans_Bold',
+                                          fontSize: 18),
+                                    ),
+                                  ),
                                 ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/paypal.png'))),
-                          ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Container(
+                                height: 50,
+                                width: 340,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(15))),
+                                child: const Center(
+                                  child: Text(
+                                    'Set Location',
+                                    style: TextStyle(
+                                        fontFamily: 'BentonSans_Bold',
+                                        fontSize: 18),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image:
-                                        AssetImage('assets/images/visa.png'))),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/Payoneer.png'))),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                   GestureDetector(
@@ -148,12 +141,12 @@ class _PaymentMethod extends State<PaymentMethod> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UploadPicture(),
+                          builder: (context) => const SignSuccess(),
                         ),
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 70),
+                      padding: const EdgeInsets.only(top: 200),
                       child: Center(
                         child: Container(
                           height: 60,

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/auth/signup_process.dart';
-import 'package:food_delivery/views/auth/upload_picture.dart';
+import 'package:food_delivery/views/passwords/via_methods.dart';
+import 'package:food_delivery/views/passwords/success.dart';
 
-class PaymentMethod extends StatefulWidget {
-  const PaymentMethod({Key? key}) : super(key: key);
+class Passwords extends StatefulWidget {
+  const Passwords({Key? key}) : super(key: key);
 
   @override
-  _PaymentMethod createState() => _PaymentMethod();
+  _Passwords createState() => _Passwords();
 }
 
-class _PaymentMethod extends State<PaymentMethod> {
+bool _isObscure = true;
+
+class _Passwords extends State<Passwords> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +30,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignProcess(),
+                      builder: (context) => ViaMethods(),
                     ),
                   );
                 },
@@ -58,7 +60,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                       child: Padding(
                     padding: EdgeInsets.fromLTRB(30, 115, 0, 0),
                     child: Text(
-                      'Payment Method',
+                      'Reset Your Password \nHere',
                       style: TextStyle(
                           fontFamily: 'BentonSans_Bold',
                           fontSize: 30,
@@ -69,91 +71,78 @@ class _PaymentMethod extends State<PaymentMethod> {
                   const Padding(
                     padding: EdgeInsets.fromLTRB(30, 10, 0, 0),
                     child: Text(
-                      'This data will be displayed in your account \naccount profile for security',
+                      'Select which contact details should we \nuse to reset your password',
                       style: TextStyle(fontSize: 15, height: 1.2),
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  Center(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
+                  Column(
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: SizedBox(
                             width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/paypal.png'))),
+                            child: TextField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  labelText: 'Password',
+                                  suffixIcon: IconButton(
+                                      icon: Icon(
+                                        _isObscure
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: Colors.green,
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          _isObscure = !_isObscure;
+                                        });
+                                      })),
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image:
-                                        AssetImage('assets/images/visa.png'))),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: SizedBox(
+                          width: 350,
+                          child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(15)),
+                                labelText: 'Confirm Password',
+                                suffixIcon: IconButton(
+                                    icon: Icon(
+                                      _isObscure
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: Colors.green,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscure = !_isObscure;
+                                      });
+                                    })),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/Payoneer.png'))),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UploadPicture(),
+                          builder: (context) => Success(),
                         ),
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 70),
+                      padding: const EdgeInsets.only(top: 170),
                       child: Center(
                         child: Container(
                           height: 60,

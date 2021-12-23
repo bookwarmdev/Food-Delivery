@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/auth/signup_process.dart';
-import 'package:food_delivery/views/auth/upload_picture.dart';
 
-class PaymentMethod extends StatefulWidget {
-  const PaymentMethod({Key? key}) : super(key: key);
+import 'package:food_delivery/views/auth/upload_picture.dart';
+import 'package:food_delivery/views/auth/set_location.dart';
+
+class UploadPreview extends StatefulWidget {
+  const UploadPreview({Key? key}) : super(key: key);
 
   @override
-  _PaymentMethod createState() => _PaymentMethod();
+  _UploadPreview createState() => _UploadPreview();
 }
 
-class _PaymentMethod extends State<PaymentMethod> {
+class _UploadPreview extends State<UploadPreview> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +29,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignProcess(),
+                      builder: (context) => const UploadPicture(),
                     ),
                   );
                 },
@@ -58,7 +59,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                       child: Padding(
                     padding: EdgeInsets.fromLTRB(30, 115, 0, 0),
                     child: Text(
-                      'Payment Method',
+                      'Upload Your Photo \nProfile',
                       style: TextStyle(
                           fontFamily: 'BentonSans_Bold',
                           fontSize: 30,
@@ -78,10 +79,10 @@ class _PaymentMethod extends State<PaymentMethod> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                          padding: const EdgeInsets.only(top: 30),
                           child: Container(
-                            height: 70,
-                            width: 350,
+                            height: 250,
+                            width: 250,
                             decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -92,52 +93,18 @@ class _PaymentMethod extends State<PaymentMethod> {
                                 color: Colors.white,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/paypal.png'))),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image:
-                                        AssetImage('assets/images/visa.png'))),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Container(
-                            height: 70,
-                            width: 350,
-                            decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black,
-                                    blurRadius: 2,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: const Center(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/Payoneer.png'))),
+                            child: Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child: Image(
+                                      image: AssetImage(
+                                          'assets/images/Gallery.png')),
+                                ),
+                              ],
+                            )),
                           ),
                         ),
                       ],
@@ -148,12 +115,12 @@ class _PaymentMethod extends State<PaymentMethod> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UploadPicture(),
+                          builder: (context) => const SetLocation(),
                         ),
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 70),
+                      padding: const EdgeInsets.only(top: 50),
                       child: Center(
                         child: Container(
                           height: 60,

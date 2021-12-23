@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/auth/payment_method.dart';
+import 'package:food_delivery/views/auth/upload_preview.dart';
 
 class UploadPicture extends StatefulWidget {
-  UploadPicture({Key? key}) : super(key: key);
+  const UploadPicture({Key? key}) : super(key: key);
 
   @override
   _UploadPicture createState() => _UploadPicture();
@@ -27,7 +28,7 @@ class _UploadPicture extends State<UploadPicture> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => PaymentMethod(),
+                      builder: (context) => const PaymentMethod(),
                     ),
                   );
                 },
@@ -53,9 +54,9 @@ class _UploadPicture extends State<UploadPicture> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                       child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 115, 0, 0),
+                    padding: EdgeInsets.fromLTRB(30, 115, 0, 0),
                     child: Text(
                       'Upload Your Photo \nProfile',
                       style: TextStyle(
@@ -65,8 +66,8 @@ class _UploadPicture extends State<UploadPicture> {
                       textAlign: TextAlign.left,
                     ),
                   )),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 10, 0, 0),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(30, 10, 0, 0),
                     child: Text(
                       'This data will be displayed in your account \naccount profile for security',
                       style: TextStyle(fontSize: 15, height: 1.2),
@@ -94,15 +95,15 @@ class _UploadPicture extends State<UploadPicture> {
                             child: Center(
                                 child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                  padding: EdgeInsets.only(top: 10),
                                   child: Image(
                                       image: AssetImage(
                                           'assets/images/Gallery.png')),
                                 ),
                                 Text(
-                                  'From Gallery',
+                                  'From Camera',
                                   style:
                                       TextStyle(fontFamily: 'BentonSans_Bold'),
                                 ),
@@ -128,15 +129,15 @@ class _UploadPicture extends State<UploadPicture> {
                             child: Center(
                                 child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                const Padding(
+                              children: const [
+                                Padding(
                                   padding: EdgeInsets.only(top: 10),
                                   child: Image(
                                       image: AssetImage(
-                                          'assets/images/Group.png')),
+                                          'assets/images/Gallery.png')),
                                 ),
-                                const Text(
-                                  'Take Photo',
+                                Text(
+                                  'From Gallery',
                                   style:
                                       TextStyle(fontFamily: 'BentonSans_Bold'),
                                 ),
@@ -152,7 +153,7 @@ class _UploadPicture extends State<UploadPicture> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UploadPicture(),
+                          builder: (context) => const UploadPreview(),
                         ),
                       );
                     },
