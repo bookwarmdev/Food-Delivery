@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart'; 
 
 class Background extends StatelessWidget {
-  final Widget widget;
+  final Widget child;
   final VoidCallback? function; 
   const Background(
       {Key? key,
-      required this.widget,
+      required this.child,
       this.function,})
       : super(key: key);
 
@@ -27,7 +27,7 @@ class Background extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Container(
-                  child: widget,
+                  child: child,
                 ),
               ),
             ),

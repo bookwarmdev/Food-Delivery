@@ -16,7 +16,7 @@ class _MenuScreenState extends State<MenuScreen> {
     final MenuList _menuList = MenuList();
     return Scaffold(
       body: Background(
-        widget: Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NavigateBack(

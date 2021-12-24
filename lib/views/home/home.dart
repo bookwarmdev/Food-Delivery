@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/views/buy/buy_screen.dart';
+import 'package:food_delivery/views/chat/view/chat_screen.dart';
 import 'package:food_delivery/views/home/views/home_screen.dart';
 import 'package:food_delivery/views/profile/profile_screen.dart';
 
@@ -30,7 +31,7 @@ class _HomeState extends State<Home> {
             ] else if (bottomIcon == BottomIcon.buy) ...[
               const BuyScreen(),
             ] else if (bottomIcon == BottomIcon.chat) ...[
-              const Text('chat'),
+              const ChatScreen(),
             ],
             Align(
               alignment: Alignment.bottomLeft,

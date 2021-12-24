@@ -1,7 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
+import 'package:flutter/material.dart'; 
 import 'package:food_delivery/utils/fonts.dart';
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/utils/widget/background.dart';
@@ -20,7 +17,7 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Background(
-        widget: Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
@@ -124,57 +121,8 @@ class _FilterScreenState extends State<FilterScreen> {
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 22.0,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(
-                  end: Alignment(-0.3, 0.0),
-                  colors: <Color>[
-                    AppColor.kPrimaryTin,
-                    AppColor.kPrimary, 
-                  ],
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  'Search',
-                  style: AppTextStyle.kTextHeader3.copyWith(
-                    color: AppColor.white,
-                  ),
-                ),
-              ),
-            ),
+            const AuthButton(title: 'Search',),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class FilterMenu extends StatelessWidget {
-  final String title;
-
-  const FilterMenu({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: AppColor.kSecondaryLight.withOpacity(0.1),
-      ),
-      child: Center(
-        child: Text(
-          title,
-          style: AppTextStyle.kTextHeader4.copyWith(),
         ),
       ),
     );

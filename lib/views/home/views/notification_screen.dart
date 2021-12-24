@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart'; 
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/utils/widget/navigator.dart';
 import 'package:food_delivery/views/home/widget/notification_list.dart';
@@ -18,7 +17,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       body: SafeArea(
         child: Background(
-          widget: Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NavigateBack(

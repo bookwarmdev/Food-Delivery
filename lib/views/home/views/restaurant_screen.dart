@@ -16,7 +16,7 @@ class _ResturantScreenState extends State<ResturantScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Background(
-        widget: Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NavigateBack(
