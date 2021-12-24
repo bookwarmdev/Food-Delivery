@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/home/home.dart';
+import 'package:food_delivery/views/home/home.dart';  
+import 'package:food_delivery/views/passwords/via_methods.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -38,9 +39,13 @@ class _LogInScreenState extends State<LogInScreen> {
                             style: TextStyle(fontFamily: 'Inter')),
                         const Padding(
                           padding: EdgeInsets.only(top: 17),
-                          child: Text('Sign Up For Free',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25)),
+                          child: Text(
+                            'Login To Your Account',
+                            style: TextStyle(
+                                fontFamily: 'BentonSans_Bold',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
@@ -85,8 +90,8 @@ class _LogInScreenState extends State<LogInScreen> {
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.grey),
                                     color: Colors.white,
-                                    borderRadius:
-                                       const BorderRadius.all(Radius.circular(13))),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(13))),
                                 child: Center(
                                   child: Row(
                                     mainAxisAlignment:
@@ -114,7 +119,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                   decoration: BoxDecoration(
                                       border: Border.all(color: Colors.grey),
                                       color: Colors.white,
-                                      borderRadius:const  BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                           Radius.circular(13))),
                                   child: Center(
                                     child: Row(
@@ -139,21 +144,36 @@ class _LogInScreenState extends State<LogInScreen> {
                             ],
                           ),
                         ),
-                        const Padding(
-                          padding:  EdgeInsets.only(top: 10),
-                          child: Text('Forgot Your Password?',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                  color: Colors.green,
-                                  decoration: TextDecoration.underline)),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ViaMethods(),
+                              ),
+                            );
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text('Forgot Your Password?',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    color: Colors.green,
+                                    decoration: TextDecoration.underline)),
+                          ),
                         ),
                         GestureDetector(
-                          onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Home(),),);
-                },
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Home(),
+                              ),
+                            );
+                          },
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 23),
+                            padding: const EdgeInsets.only(top: 30),
                             child: Container(
                               height: 60,
                               width: 140,

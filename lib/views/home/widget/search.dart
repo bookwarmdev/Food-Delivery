@@ -8,44 +8,42 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        children: [
-          Expanded( 
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.asset('assets/svgs/Search.svg'),
+    return Row(
+      children: [
+        Expanded( 
+          child: TextField(
+            decoration: InputDecoration(
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset('assets/svgs/Search.svg'),
+              ),
+              hintText: 'What do you want to order?',
+              hintStyle: AppTextStyle.kTextHeader4.copyWith(
+                color: AppColor.kSecondary.withOpacity(0.8),
+              ),
+              filled: true,
+              fillColor: AppColor.kSecondaryLight.withOpacity(0.2),
+              focusColor: AppColor.kSecondary,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(15),
                 ),
-                hintText: 'What do you want to order?',
-                hintStyle: AppTextStyle.kTextHeader4.copyWith(
-                  color: AppColor.kSecondary.withOpacity(0.8),
+                borderSide: BorderSide(
+                  color: AppColor.kSecondaryLight.withOpacity(0.2),
+                  width: 0.0,
                 ),
-                filled: true,
-                fillColor: AppColor.kSecondaryLight.withOpacity(0.2),
-                focusColor: AppColor.kSecondary,
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                  borderSide: BorderSide(
-                    color: AppColor.kSecondaryLight.withOpacity(0.2),
-                    width: 0.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(22)),
-                  borderSide: BorderSide(
-                    color: AppColor.kSecondaryLight.withOpacity(0.2),
-                    width: 1,
-                  ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(22)),
+                borderSide: BorderSide(
+                  color: AppColor.kSecondaryLight.withOpacity(0.2),
+                  width: 1,
                 ),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

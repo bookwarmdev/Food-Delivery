@@ -7,6 +7,6 @@ class ResturantList {
     Resturant(imagePath: 'assets/images/Restaurant_Image3.png', name: 'Good Food', time: '12',),
     Resturant(imagePath: 'assets/images/Restaurant_Image4.png', name: 'Smart Resto', time: '8',),
     Resturant(imagePath: 'assets/images/Restaurant_Image5.png', name: 'Vegan Resto', time: '18',),
-    Resturant(imagePath: 'assets/images/Restaurant_Image6.png', name: 'Healthy Food', time: '30',), 
+    Resturant(imagePath: 'assets/images/Restaurant_Image6.png', name: 'Healthy Food', time: '30',),  
   ];
 }

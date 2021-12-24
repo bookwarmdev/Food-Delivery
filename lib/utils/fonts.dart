@@ -3,9 +3,10 @@ import 'package:food_delivery/utils/colors.dart';
 
 class AppTextStyle {
   static const kTextHeader = TextStyle(
-    fontSize: 40.0,
+    fontSize: 30.0,
     fontFamily: 'BentonSans_Regular', 
     fontWeight: FontWeight.bold, 
+    height: 1.2,
   );
 
   static const kTextHeader2 = TextStyle(

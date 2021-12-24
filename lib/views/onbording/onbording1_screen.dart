@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/onbording/onbording2_screen.dart';
-
-import 'onbording3_screen.dart';
+import 'package:food_delivery/views/onbording/onbording2_screen.dart'; 
 
 class Onbording1Screen extends StatefulWidget {
   const Onbording1Screen({Key? key}) : super(key: key);
