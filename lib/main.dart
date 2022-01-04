@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/onbording/onbording1_screen.dart';   
+import 'package:food_delivery/views/productsdetails/dmscrollmode.dart';
+import 'package:food_delivery/views/productsdetails/detail_menu.dart';
+import 'package:food_delivery/views/profile/pscrollmode.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +13,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Flutter Demo', home: Onbording1Screen());
+    return MaterialApp(title: 'Flutter Demo', home: pscrollmode());
   }
 }
