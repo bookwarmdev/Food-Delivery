@@ -60,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/PromoAdvertising.png'),
+                fit: BoxFit.cover,
               ),
             ),
             height: 150,
