@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:food_delivery/views/auth/login_screen.dart'; 
 import 'package:food_delivery/views/auth/signup_process.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -223,7 +224,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignProcess()),
+                                    builder: (context) => const LogInScreen()),
                               );
                             },
                             child: const Text(
@@ -232,7 +233,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   color: Colors.green,
                                   fontFamily: 'BentonSans_Bold',
                                   decoration: TextDecoration.underline),
-                            ))
+                            ),
+                            ),
                       ],
                     ),
                   ),

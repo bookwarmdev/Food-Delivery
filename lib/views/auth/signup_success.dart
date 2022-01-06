@@ -27,7 +27,7 @@ class _SignSuccessState extends State<SignSuccess> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Image(
-                  image: AssetImage("assets/images/illustrationn.png"),
+                  image: AssetImage("assets/images/Illustration.png"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20),

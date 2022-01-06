@@ -27,378 +27,253 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     fit: BoxFit.cover),
               ),
             ),
-            GestureDetector(
-              onVerticalDragStart: (DragStartDetails details) {
-                const ProfileScreen();
-              },
+            SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(top: 250),
+                padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
                 child: Container(
-                  height: 500,
-                  width: 420,
+                  margin: const EdgeInsetsDirectional.only(bottom: 80.0),
                   decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(45),
-                          topRight: Radius.circular(45))),
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(45),
+                      topRight: Radius.circular(45),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(vertical: 20.0),
+                            height: 5.0,
+                            width: 58.0,
+                            decoration: BoxDecoration(
+                              color: Colors.orange[50],
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 40,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.orange[50],
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                          ),
+                          child: const Center(
+                              child: Text(
+                            'Member Gold',
+                            style: TextStyle(
+                              color: Colors.orange,
+                              fontFamily: 'BentonSans_Medium',
+                            ),
+                          )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                'Anam Wosono',
+                                style: TextStyle(
+                                    fontFamily: 'BentonSans_Bold',
+                                    fontSize: 30,
+                                    height: 1),
+                              ),
+                              Image(
+                                image: AssetImage(
+                                    "assets/icons/Edit_Icon.png"),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Text(
+                          'qaawjfn@gmail.com',
+                          style:
+                              TextStyle(color: Colors.grey, fontSize: 15),
+                        ),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        Container(
+                          height: 70,
+                          width: 400,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 3))
+                              ]),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Image(
+                                  image: AssetImage(
+                                      "assets/icons/Voucher_Icon.png"),
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Text(
+                                  "You have 3 voucher",
+                                  style: TextStyle(
+                                      fontFamily: 'BentonSans_Bold',
+                                      fontSize: 15),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Text(
+                            "Favourite",
+                            style: TextStyle(
+                                fontFamily: 'BentonSans_Bold',
+                                fontSize: 15),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15.0,
+                        ),
+                        const FavouriteCard(
+                          name: 'Spacy Fresh crab',
+                          title: 'Waroenk Kita',
+                          amount: ' \$ 35',
+                          imagePath: 'assets/images/Carrot.png',
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const FavouriteCard(
+                          name: 'Spacy Fresh crab',
+                          title: 'Waroenk Kita',
+                          amount: ' \$ 35',
+                          imagePath: 'assets/images/Cup.png',
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const FavouriteCard(
+                          name: 'Spacy Fresh crab',
+                          title: 'Waroenk Kita',
+                          amount: ' \$ 35',
+                          imagePath: 'assets/images/Ice_Cream.png',
+                        ),
+                        
+                      ],
+                      
+                    ),
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 270, 30, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 40,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        color: Colors.orange[50],
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20))),
-                    child: const Center(
-                        child: Text(
-                      'Member Gold',
-                      style: TextStyle(
-                          color: Colors.orange,
-                          fontFamily: 'BentonSans_Medium'),
-                    )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FavouriteCard extends StatelessWidget {
+  final String name, title, amount, imagePath;
+  const FavouriteCard({
+    Key? key,
+    required this.name,
+    required this.title,
+    required this.amount,
+    required this.imagePath,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(15),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              blurRadius: 7,
+              offset: const Offset(0, 3),
+            )
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image(
+              image: AssetImage(imagePath),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontFamily: 'BentonSans_Bold',
+                    fontSize: 18,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Anam Wosono',
-                          style: TextStyle(
-                              fontFamily: 'BentonSans_Bold',
-                              fontSize: 30,
-                              height: 1),
-                        ),
-                        Image(image: AssetImage("assets/icons/Edit_Icon.png")),
-                      ],
-                    ),
+                ),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text(
-                      'qaawjfn@gmail.com',
-                      style: TextStyle(color: Colors.grey, fontSize: 15),
-                    ),
+                ),
+                Text(
+                  amount,
+                  style: const TextStyle(
+                    color: Colors.green,
+                    fontSize: 25,
+                    fontFamily: 'BentonSans_Bold',
+                    height: 1.5,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12),
-                    child: Container(
-                      height: 70,
-                      width: 400,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                blurRadius: 7,
-                                offset: const Offset(0, 3))
-                          ]),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 20, 0, 0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Image(
-                                image: AssetImage(
-                                    "assets/icons/Voucher_Icon.png")),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "You have 3 voucher",
-                                    style: TextStyle(
-                                        fontFamily: 'BentonSans_Bold',
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child: Text(
-                      "Favourite",
-                      style: TextStyle(
-                          fontFamily: 'BentonSans_Bold', fontSize: 15),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Container(
-                      height: 120,
-                      width: 400,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                blurRadius: 7,
-                                offset: const Offset(0, 3))
-                          ]),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(12, 20, 0, 0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Image(
-                                image: AssetImage("assets/images/Carrot.png")),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "Spacy Fresh crab",
-                                    style: TextStyle(
-                                        fontFamily: 'BentonSans_Bold',
-                                        fontSize: 18),
-                                  ),
-                                  Text(
-                                    'Waroenk Kita',
-                                    style: TextStyle(
-                                        color: Colors.grey, fontSize: 15),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Text(
-                                      ' \$ 35',
-                                      style: TextStyle(
-                                          color: Colors.green,
-                                          fontSize: 25,
-                                          fontFamily: 'BentonSans_Bold',
-                                          height: 1.5),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(15, 20, 0, 0),
-                              child: Container(
-                                height: 30,
-                                width: 80,
-                                decoration: const BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(17))),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: const [
-                                    Text(
-                                      'Buy Again',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'BentonSans_Bold',
-                                          fontSize: 12),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                ),
+              ],
+            ),
+            Container(
+              height: 30,
+              width: 80,
+              decoration: const BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(17),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Text(
+                    'Buy Again',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'BentonSans_Bold',
+                      fontSize: 12,
                     ),
                   ),
                 ],
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColor.kblurColor.withOpacity(0.3),
-                        spreadRadius: 0,
-                        blurRadius: 50,
-                        offset: const Offset(0, 0),
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 5.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BottomNav(
-                        onPressed: () {
-                          setState(() {
-                            bottomIcon = BottomIcon.home;
-                          });
-                        },
-                        bottomIcon:
-                            bottomIcon == BottomIcon.home ? true : false,
-                        iconWidget: Image.asset('assets/icons/Home.png'),
-                        activeImagePath: 'assets/icons/Active_Home.png',
-                        text: 'Home',
-                        widget: const Text(''),
-                      ),
-                      BottomNav(
-                        onPressed: () {
-                          setState(() {
-                            bottomIcon = BottomIcon.profile;
-                          });
-                        },
-                        bottomIcon:
-                            bottomIcon == BottomIcon.profile ? true : false,
-                        iconWidget: Image.asset('assets/icons/Profile.png'),
-                        activeImagePath: 'assets/icons/Profile.png',
-                        text: 'Profile',
-                        widget: const Text(''),
-                      ),
-                      BottomNav(
-                        onPressed: () {
-                          setState(() {
-                            bottomIcon = BottomIcon.buy;
-                          });
-                        },
-                        bottomIcon: bottomIcon == BottomIcon.buy ? true : false,
-                        iconWidget: Stack(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                bottomIcon = BottomIcon.buy;
-                              },
-                              icon: Image.asset('assets/icons/Buy.png'),
-                            ),
-                            Positioned(
-                              left: 28.0,
-                              top: 10.0,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AppColor.white,
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: AppColor.red,
-                                ),
-                                width: 15.0,
-                                height: 15.0,
-                                child: Center(
-                                  child: Text(
-                                    '7',
-                                    style: AppTextStyle.kTextHeader2.copyWith(
-                                      fontSize: 10.0,
-                                      color: AppColor.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        activeImagePath: 'assets/icons/Buy.png',
-                        text: 'Buy',
-                        widget: Positioned(
-                          left: 35.0,
-                          top: 5.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: AppColor.white,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                              color: AppColor.red,
-                            ),
-                            width: 15.0,
-                            height: 15.0,
-                            child: Center(
-                              child: Text(
-                                '7',
-                                style: AppTextStyle.kTextHeader2.copyWith(
-                                  fontSize: 10.0,
-                                  color: AppColor.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      BottomNav(
-                        onPressed: () {
-                          setState(() {
-                            bottomIcon = BottomIcon.chat;
-                          });
-                        },
-                        bottomIcon:
-                            bottomIcon == BottomIcon.chat ? true : false,
-                        iconWidget: Stack(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  bottomIcon = BottomIcon.chat;
-                                });
-                              },
-                              icon: Image.asset('assets/icons/Chat.png'),
-                            ),
-                            Positioned(
-                              left: 25.0,
-                              top: 10.0,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AppColor.white,
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: AppColor.red,
-                                ),
-                                width: 15.0,
-                                height: 15.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                        activeImagePath: 'assets/icons/Active_Chat.png',
-                        text: 'Chat',
-                        widget: Positioned(
-                          left: 35.0,
-                          top: 6.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: AppColor.white,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                              color: AppColor.red,
-                            ),
-                            width: 15.0,
-                            height: 15.0,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ],

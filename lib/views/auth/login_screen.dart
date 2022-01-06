@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/home/home.dart';  
+import 'package:food_delivery/views/auth/signup_screen.dart';
+import 'package:food_delivery/views/home/home.dart';
 import 'package:food_delivery/views/passwords/via_methods.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -15,37 +16,42 @@ class _LogInScreenState extends State<LogInScreen> {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         body: SafeArea(
-          child: Stack(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/images/Pattern.png"),
-                        fit: BoxFit.cover)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5),
-                child: Center(
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
                   child: Column(
                     children: [
-                      const Image(
-                          image: AssetImage("assets/images/Logo.png")),
-                      const Text('Food Ninja',
-                          style: TextStyle(
-                              color: Colors.green,
-                              fontSize: 45,
-                              fontFamily: 'Viga')),
-                      const Text('Deliver Favourite Food',
-                          style: TextStyle(fontFamily: 'Inter')),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 17),
-                        child: Text(
-                          'Login To Your Account',
-                          style: TextStyle(
-                              fontFamily: 'BentonSans_Bold',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25),
-                        ),
+                      const Image(image: AssetImage("assets/images/Logo.png")),
+                      const Text(
+                        'Food Ninja',
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 40,
+                            fontFamily: 'Viga'),
+                      ),
+                      const Text(
+                        'Deliver Favourite Food',
+                        style: TextStyle(fontFamily: 'Inter'),
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      const Text(
+                        'Login To Your Account',
+                        style: TextStyle(
+                            fontFamily: 'BentonSans_Bold',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
@@ -80,69 +86,64 @@ class _LogInScreenState extends State<LogInScreen> {
                                 fontWeight: FontWeight.bold, fontSize: 15)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 10.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              height: 60,
-                              width: 140,
+                              height: 57,
+                              width: 152,
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.grey),
                                   color: Colors.white,
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(13))),
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: const [
-                                    Image(
-                                        image: AssetImage(
-                                            "assets/icons/facebook.png")),
-                                    Text(
-                                      'Facebook',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: const [
+                                  Image(
+                                      image: AssetImage(
+                                          "assets/icons/facebook.png")),
+                                  Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Container(
-                                height: 60,
-                                width: 140,
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey),
-                                    color: Colors.white,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(13))),
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: const [
-                                      Image(
-                                          image: AssetImage(
-                                              "assets/icons/google-icon.png")),
-                                      Text(
-                                        'Google',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16),
-                                      ),
-                                    ],
+                            Container(
+                              height: 57,
+                              width: 152,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  color: Colors.white,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(13))),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: const [
+                                  Image(
+                                      image: AssetImage(
+                                          "assets/icons/google-icon.png")),
+                                  Text(
+                                    'Google',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
                           ],
                         ),
+                      ),
+                      const SizedBox(
+                        height: 10.0,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -153,15 +154,12 @@ class _LogInScreenState extends State<LogInScreen> {
                             ),
                           );
                         },
-                        child: const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Text('Forgot Your Password?',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                  color: Colors.green,
-                                  decoration: TextDecoration.underline)),
-                        ),
+                        child: const Text('Forgot Your Password?',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                                color: Colors.green,
+                                decoration: TextDecoration.underline)),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -175,28 +173,45 @@ class _LogInScreenState extends State<LogInScreen> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 30),
                           child: Container(
-                            height: 60,
-                            width: 140,
+                            height: 57,
+                            width: 141,
                             decoration: const BoxDecoration(
                                 color: Color.fromRGBO(83, 232, 139, 1),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
                             child: const Center(
-                                child: Text(
-                              'Login',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
-                            )),
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
+                              ),
+                            ),
                           ),
                         ),
-                      )
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignupScreen()),
+                          );
+                        },
+                        child: const Text(
+                          'Did not have an account?',
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontFamily: 'BentonSans_Bold',
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
                     ],
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ));
   }

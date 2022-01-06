@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/auth/signup_success.dart';
+import 'package:food_delivery/views/home/home.dart';
 import 'package:food_delivery/views/home/views/home_screen.dart';
 
 class Verification extends StatefulWidget {
@@ -92,7 +93,7 @@ class _Verification extends State<Verification> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const Home(),
                         ),
                       );
                     },
