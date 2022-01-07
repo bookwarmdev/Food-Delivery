@@ -133,8 +133,9 @@ class _UploadPicture extends State<UploadPicture> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 10),
                                   child: Image(
-                                      image: AssetImage(
-                                          'assets/images/Gallery.png')),
+                                    image:
+                                        AssetImage('assets/images/Gallery.png'),
+                                  ),
                                 ),
                                 Text(
                                   'From Gallery',

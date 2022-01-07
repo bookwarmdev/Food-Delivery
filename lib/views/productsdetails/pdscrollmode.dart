@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/views/productsdetails/product_details.dart';
+import 'package:flutter/material.dart'; 
 
 class pdcrollmode extends StatefulWidget {
   pdcrollmode({Key? key}) : super(key: key);

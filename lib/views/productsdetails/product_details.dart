@@ -3,7 +3,6 @@ import 'package:food_delivery/views/productsdetails/pdscrollmode.dart';
 
 class productdetails extends StatefulWidget {
   productdetails({Key? key}) : super(key: key);
-
   @override
   _productdetailsState createState() => _productdetailsState();
 }
@@ -11,9 +10,9 @@ class productdetails extends StatefulWidget {
 class _productdetailsState extends State<productdetails> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
           children: [
             Container(
               height: 350,

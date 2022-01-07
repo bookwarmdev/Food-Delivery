@@ -175,9 +175,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           amount: ' \$ 35',
                           imagePath: 'assets/images/Ice_Cream.png',
                         ),
-                        
                       ],
-                      
                     ),
                   ),
                 ),

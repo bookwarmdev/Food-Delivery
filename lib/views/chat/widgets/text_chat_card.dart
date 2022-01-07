@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/ui.dart';
+import 'package:flutter/material.dart'; 
 
 class TextChatCard extends StatelessWidget {
   final Text text;

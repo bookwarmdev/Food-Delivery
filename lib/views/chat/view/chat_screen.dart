@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'; 
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/background.dart';
-import 'package:food_delivery/utils/widget/navigator.dart';
+import 'package:food_delivery/utils/widget/background.dart'; 
 import 'package:food_delivery/views/chat/view/livechat_screen.dart';
 
 class ChatScreen extends StatefulWidget {
