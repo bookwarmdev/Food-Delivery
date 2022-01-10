@@ -64,7 +64,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/icons/
+    - assets/icons/Icon_clock.png
     - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
