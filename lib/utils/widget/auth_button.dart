@@ -3,15 +3,18 @@ import '../ui.dart';
 
 class AuthButton extends StatelessWidget {
   final String title;
+  final VoidCallback onTap;
+
   const AuthButton({
     Key? key,
     required this.title,
+    required this.onTap
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pop(context),
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 20.0,

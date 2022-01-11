@@ -11,8 +11,7 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
+    return  SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Stack(
@@ -22,18 +21,15 @@ class Background extends StatelessWidget {
               right: -5.0,
               child: Image.asset('assets/images/Pattern2.png'),
             ),
-            SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  child: child,
-                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: child,
               ),
             ),
           ],
-        ),
-      ),
+        ), 
     );
   }
 }
