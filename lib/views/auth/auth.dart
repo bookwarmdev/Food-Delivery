@@ -1,0 +1,9 @@
+export './views/login_screen.dart';
+export './views/payment_method.dart';
+export './views/set_location.dart';
+export './views/signup_process.dart';
+export './views/signup_screen.dart';
+export './views/signup_success.dart';
+export './views/upload_picture.dart';
+export './views/upload_preview.dart';
+export './views/verification.dart';

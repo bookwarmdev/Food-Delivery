@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/onbording/onbording2_screen.dart'; 
+import 'package:food_delivery/utils/ui.dart';
+import 'onbording.dart';
 
 class Onbording1Screen extends StatefulWidget {
   const Onbording1Screen({Key? key}) : super(key: key);
@@ -31,37 +32,24 @@ class _Onbording1Screen extends State<Onbording1Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/Pattern.png"),
-                  fit: BoxFit.cover),
+    return AuthBackground(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Image(
+              image: AssetImage("assets/images/Logo.png"),
             ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Image(
-                  image: AssetImage("assets/images/Logo.png"),
-                ),
-                Text(
-                  'Food Ninja',
-                  style: TextStyle(
-                      color: Colors.green, fontSize: 45, fontFamily: 'Viga'),
-                ),
-                Text(
-                  'Deliver Favourite Food',
-                  style: TextStyle(fontFamily: 'Inter'),
-                )
-              ],
+            Text(
+              'Food Ninja',
+              style: AppTextStyle.kBrandHeader,
             ),
-          ),
-        ],
+            Text(
+              'Deliver Favourite Food',
+              style: AppTextStyle.kBrandText,
+            )
+          ],
+        ),
       ),
     );
   }

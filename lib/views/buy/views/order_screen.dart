@@ -155,7 +155,7 @@ class _OrderScreenState extends State<OrderScreen> {
             Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: AuthButton(
-                title: 'Check out',
+                title: 'Check Out',
                 onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>const LocationScreen())),
               ),
             ),

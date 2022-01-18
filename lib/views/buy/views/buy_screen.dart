@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/fonts.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/background.dart'; 
+import 'package:food_delivery/utils/widget/background.dart';
 import 'package:food_delivery/views/buy/views/confirm_order_screen.dart';
 import 'package:food_delivery/views/buy/widget/order_list.dart';
 
@@ -16,11 +15,11 @@ class BuyScreen extends StatefulWidget {
 
 class _BuyScreenState extends State<BuyScreen> {
   int product_number = 1;
-  OrderList orderList = OrderList(); 
+  OrderList orderList = OrderList();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: Background(
         child: Column(
           children: [
@@ -54,16 +53,21 @@ class _BuyScreenState extends State<BuyScreen> {
                             color: AppColor.kSecondaryLight,
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 40.0),
                             child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Image.asset('assets/icons/trash.png')),
+                                alignment: Alignment.centerRight,
+                                child: Image.asset('assets/icons/trash.png')),
                           ),
                         ),
                         onDismissed: (direction) {
-                          setState(() {
-                            orderList.order.removeAt(index);
-                          });
+                          try {
+                            setState(() {
+                              orderList.order.removeAt(index);
+                            });
+                          } catch (e) {
+                            print(e);
+                          }
                         },
                         child: Container(
                           margin: const EdgeInsets.symmetric(vertical: 10.0),
@@ -95,8 +99,8 @@ class _BuyScreenState extends State<BuyScreen> {
                                       ),
                                       Text(
                                         orderList.order[index].title,
-                                        style: AppTextStyle.kTextHeader4
-                                            .copyWith(
+                                        style:
+                                            AppTextStyle.kTextHeader4.copyWith(
                                           color: AppColor.grey,
                                         ),
                                       ),
@@ -177,13 +181,13 @@ class _BuyScreenState extends State<BuyScreen> {
             ),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0),
-                  color: AppColor.kPrimary,
-                  image: const DecorationImage(
-                    image:  AssetImage('assets/images/Pattern_order.png'), 
-                    fit: BoxFit.fill,
-                    ),
-                  ),
+                borderRadius: BorderRadius.circular(16.0),
+                color: AppColor.kPrimary,
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/Pattern_order.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
@@ -207,7 +211,9 @@ class _BuyScreenState extends State<BuyScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5.0,),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -227,8 +233,9 @@ class _BuyScreenState extends State<BuyScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5.0,),
-
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -272,8 +279,12 @@ class _BuyScreenState extends State<BuyScreen> {
                       height: 20.0,
                     ),
                     GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ConfirmOrderScreen()));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ConfirmOrderScreen()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
