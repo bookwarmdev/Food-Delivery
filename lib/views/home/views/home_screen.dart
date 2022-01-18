@@ -9,6 +9,8 @@ import 'package:food_delivery/views/home/widget/favorite_food.dart';
 import 'package:food_delivery/views/home/widget/menu_list.dart';
 import 'package:food_delivery/views/home/widget/resturant_list.dart';
 import 'package:food_delivery/views/home/widget/search.dart';
+import 'package:food_delivery/views/products/detail_menu.dart';
+import 'package:food_delivery/views/products/product_details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -141,62 +143,65 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 10.0,
             ),
-            SizedBox(
-              height: 184,
-              child: ListView.builder(
-                itemCount: _resturantList.restureant.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(22.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              offset: Offset(12, 26),
-                              spreadRadius: 0,
-                              color: AppColor.kPrimaryLigth,
-                              blurRadius: 60.0,
-                            )
-                          ],
-                          color: AppColor.white,
-                        ),
-                        width: 147.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                                _resturantList.restureant[index].imagePath),
-                            const SizedBox(
-                              height: 10.0,
-                            ),
-                            Text(
-                              _resturantList.restureant[index].name,
-                              style: AppTextStyle.kTextHeader2.copyWith(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
+            GestureDetector(
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Productdetails(),),),
+              child: SizedBox(
+                height: 184,
+                child: ListView.builder(
+                  itemCount: _resturantList.restureant.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22.0),
+                            boxShadow: const [
+                              BoxShadow(
+                                offset: Offset(12, 26),
+                                spreadRadius: 0,
+                                color: AppColor.kPrimaryLigth,
+                                blurRadius: 60.0,
+                              )
+                            ],
+                            color: AppColor.white,
+                          ),
+                          width: 147.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                  _resturantList.restureant[index].imagePath,),
+                              const SizedBox(
+                                height: 10.0,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 5.0,
-                            ),
-                            Text(
-                              '${_resturantList.restureant[index].time} Mins',
-                              style: AppTextStyle.kTextHeader4
-                                  .copyWith(color: AppColor.grey),
-                            ),
-                          ],
+                              Text(
+                                _resturantList.restureant[index].name,
+                                style: AppTextStyle.kTextHeader2.copyWith(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                '${_resturantList.restureant[index].time} Mins',
+                                style: AppTextStyle.kTextHeader4
+                                    .copyWith(color: AppColor.grey),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 15.0,
-                      ),
-                    ],
-                  );
-                },
+                        const SizedBox(
+                          width: 15.0,
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(
@@ -228,77 +233,79 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             
-            SizedBox(
-              // height: MediaQuery.of(context).size.height / 1.5,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                itemCount: _menuList.menu.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(22.0),
-                          boxShadow: [
-                            BoxShadow(
-                              offset: const Offset(12, 26),
-                              spreadRadius: 0,
-                              color: AppColor.kblurColor.withOpacity(0.1),
-                              blurRadius: 50.0,
-                            )
-                          ],
-                          color: AppColor.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(_menuList.menu[index].imagePath),
-                                  const SizedBox(
-                                    width: 20.0,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        _menuList.menu[index].name,
-                                        style: AppTextStyle.kTextHeader3,
-                                      ),
-                                      const SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Text(
-                                        _menuList.menu[index].title,
-                                        style: AppTextStyle.kTextHeader3.copyWith(
-                                          color: AppColor.grey,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                _menuList.menu[index].amount,
-                                style: AppTextStyle.kTextHeader2.copyWith(
-                                  color: AppColor.kSecondaryLight,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+            GestureDetector(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Detailmenu(),),),
+              child: SizedBox( 
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: _menuList.menu.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22.0),
+                            boxShadow: [
+                              BoxShadow(
+                                offset: const Offset(12, 26),
+                                spreadRadius: 0,
+                                color: AppColor.kblurColor.withOpacity(0.1),
+                                blurRadius: 50.0,
+                              )
                             ],
+                            color: AppColor.white,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(_menuList.menu[index].imagePath),
+                                    const SizedBox(
+                                      width: 20.0,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          _menuList.menu[index].name,
+                                          style: AppTextStyle.kTextHeader3,
+                                        ),
+                                        const SizedBox(
+                                          height: 5.0,
+                                        ),
+                                        Text(
+                                          _menuList.menu[index].title,
+                                          style: AppTextStyle.kTextHeader3.copyWith(
+                                            color: AppColor.grey,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  _menuList.menu[index].amount,
+                                  style: AppTextStyle.kTextHeader2.copyWith(
+                                    color: AppColor.kSecondaryLight,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                    ],
-                  );
-                },
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 100.0,)

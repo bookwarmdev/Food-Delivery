@@ -8,6 +8,7 @@ export './views/location.dart';
 export './views/order_screen.dart';
 export './views/payment_screen.dart';
 export './views/shipping_screen.dart';
+export './views/track_order.dart';
 
 //widgets
 export './widget/order_list.dart';

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
+import 'package:food_delivery/views/buy/buy.dart';
 import 'package:food_delivery/views/home/home.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -12,21 +13,25 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+
+  final Completer<GoogleMapController> _completer = Completer();
+
+  static const LatLng _center =  LatLng(6.4141,
+                4.0887,);
+
+  void _onMapCreated(GoogleMapController googleMapController) {
+    _completer.complete(googleMapController);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           GoogleMap(
-            onMapCreated: (GoogleMapController googleMapController) {
-              Completer<GoogleMapController> _completer = Completer();
-              _completer.complete(googleMapController);
-            },
+            onMapCreated: _onMapCreated,
             initialCameraPosition: const CameraPosition(
-              target: LatLng(
-                45.521563,
-                -122.677433,
-              ),
+              target:  _center,
               zoom: 11.0,
             ),
           ),
@@ -39,6 +44,8 @@ class _LocationScreenState extends State<LocationScreen> {
           ),
           Positioned(
             bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Container(
@@ -91,7 +98,9 @@ class _LocationScreenState extends State<LocationScreen> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    AuthButton(title: 'Set Location', onTap: () {}),
+                    AuthButton(title: 'Set Location', onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const Trackorder(),),);
+                    },),
                   ],
                 ),
               ),

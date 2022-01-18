@@ -14,7 +14,7 @@ class BuyScreen extends StatefulWidget {
 }
 
 class _BuyScreenState extends State<BuyScreen> {
-  int product_number = 1;
+  int productNumber = 1;
   OrderList orderList = OrderList();
 
   @override
@@ -66,7 +66,7 @@ class _BuyScreenState extends State<BuyScreen> {
                               orderList.order.removeAt(index);
                             });
                           } catch (e) {
-                            print(e);
+                            // print(e);
                           }
                         },
                         child: Container(
@@ -124,9 +124,9 @@ class _BuyScreenState extends State<BuyScreen> {
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        product_number <= 0
-                                            ? product_number = 0
-                                            : product_number--;
+                                        productNumber <= 0
+                                            ? productNumber = 0
+                                            : productNumber--;
                                       });
                                     },
                                     child: Container(
@@ -145,14 +145,14 @@ class _BuyScreenState extends State<BuyScreen> {
                                   const SizedBox(
                                     width: 20.0,
                                   ),
-                                  Text('$product_number'),
+                                  Text('$productNumber'),
                                   const SizedBox(
                                     width: 20.0,
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        product_number++;
+                                        productNumber++;
                                       });
                                     },
                                     child: Container(

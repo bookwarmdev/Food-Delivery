@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/background.dart'; 
+import 'package:food_delivery/utils/widget/background.dart';
 import 'package:food_delivery/views/chat/view/livechat_screen.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -17,19 +17,44 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20.0,),
-           Text('Chat', style: AppTextStyle.kTextHeader2.copyWith(
-            fontWeight: FontWeight.bold,
-          ),),
-          const SizedBox(height: 20.0,),
-            ChatCard(imagePath: 'assets/images/Photo_Profile1.png', name: 'Anamwp', onTap: (){
-              Navigator.push(context, 
-              MaterialPageRoute(builder: (context) => const LiveChatScreen(),),);
-            },),
-          const SizedBox(height: 20.0,),
-            ChatCard(imagePath: 'assets/images/Photo_Profile2.png', name: 'Guy Hawkins',),
-          const SizedBox(height: 20.0,),
-            ChatCard(imagePath: 'assets/images/Photo_Profile3.png', name: 'Leslie Alexander',),
+          const SizedBox(
+            height: 20.0,
+          ),
+          Text(
+            'Chat',
+            style: AppTextStyle.kTextHeader2.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          ChatCard(
+            imagePath: 'assets/images/Photo_Profile1.png',
+            name: 'Anamwp',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LiveChatScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const ChatCard(
+            imagePath: 'assets/images/Photo_Profile2.png',
+            name: 'Guy Hawkins',
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const ChatCard(
+            imagePath: 'assets/images/Photo_Profile3.png',
+            name: 'Leslie Alexander',
+          ),
         ],
       ),
     );
@@ -37,10 +62,10 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class ChatCard extends StatelessWidget {
-    String imagePath;
-    String name;
-    VoidCallback? onTap;
-    ChatCard({
+  final String imagePath;
+  final String name;
+  final VoidCallback? onTap;
+  const ChatCard({
     Key? key,
     required this.imagePath,
     required this.name,
@@ -72,24 +97,37 @@ class ChatCard extends StatelessWidget {
             Row(
               children: [
                 Image.asset(imagePath),
-                const SizedBox(width: 10.0,),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name, style: AppTextStyle.kTextHeader3.copyWith(),),
-                const SizedBox(height: 5.0,),
-                Text('Your Order Just Arrived!', style: AppTextStyle.kTextHeader4.copyWith(
-              color: AppColor.grey,
-              fontSize: 14.0,
-            ),),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: AppTextStyle.kTextHeader3.copyWith(),
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      'Your Order Just Arrived!',
+                      style: AppTextStyle.kTextHeader4.copyWith(
+                        color: AppColor.grey,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-              ],
+            Text(
+              '20:00',
+              style: AppTextStyle.kTextHeader4.copyWith(
+                color: AppColor.grey,
+                fontSize: 14.0,
+              ),
             ),
-            Text('20:00', style: AppTextStyle.kTextHeader4.copyWith(
-              color: AppColor.grey,
-              fontSize: 14.0,
-            ),),
           ],
         ),
       ),
