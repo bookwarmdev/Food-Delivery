@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/fonts.dart';
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/utils/widget/background.dart';
 import 'package:food_delivery/views/buy/views/confirm_order_screen.dart';
@@ -14,7 +12,6 @@ class BuyScreen extends StatefulWidget {
 }
 
 class _BuyScreenState extends State<BuyScreen> {
-  int productNumber = 1;
   OrderList orderList = OrderList();
 
   @override
@@ -44,22 +41,12 @@ class _BuyScreenState extends State<BuyScreen> {
                     scrollDirection: Axis.vertical,
                     itemCount: orderList.order.length,
                     itemBuilder: (context, index) {
-                      return Dismissible(
-                        key: Key(index.toString()),
-                        direction: DismissDirection.endToStart,
-                        background: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: AppColor.kSecondaryLight,
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 40.0),
-                            child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Image.asset('assets/icons/trash.png')),
-                          ),
-                        ),
+                      return ChatCard(
+                        indexKey: Key(index.toString()),
+                        imagePath: orderList.order[index].imagePath,
+                        name: orderList.order[index].name,
+                        title: orderList.order[index].title,
+                        amount: orderList.order[index].amount,
                         onDismissed: (direction) {
                           try {
                             setState(() {
@@ -69,111 +56,138 @@ class _BuyScreenState extends State<BuyScreen> {
                             // print(e);
                           }
                         },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 10.0),
-                          padding: const EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: AppColor.white,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(orderList.order[index].imagePath),
-                                  const SizedBox(
-                                    width: 20.0,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        orderList.order[index].name,
-                                        style: AppTextStyle.kTextHeader3
-                                            .copyWith(),
-                                      ),
-                                      const SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Text(
-                                        orderList.order[index].title,
-                                        style:
-                                            AppTextStyle.kTextHeader4.copyWith(
-                                          color: AppColor.grey,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 5.0,
-                                      ),
-                                      Text(
-                                        orderList.order[index].amount,
-                                        style:
-                                            AppTextStyle.kTextHeader.copyWith(
-                                          color: AppColor.kPrimary,
-                                          fontSize: 19.0,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        productNumber <= 0
-                                            ? productNumber = 0
-                                            : productNumber--;
-                                      });
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          color: AppColor.kPrimaryLigth),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15.0, vertical: 20.0),
-                                        child: Image.asset(
-                                            'assets/icons/subtract.png'),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 20.0,
-                                  ),
-                                  Text('$productNumber'),
-                                  const SizedBox(
-                                    width: 20.0,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        productNumber++;
-                                      });
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          color: AppColor.kPrimary),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15.0, vertical: 15.0),
-                                        child: Image.asset(
-                                            'assets/icons/addtion.png'),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
                       );
+
+                      // Dismissible(
+                      //   key: Key(index.toString()),
+                      //   direction: DismissDirection.endToStart,
+                      //   background: Container(
+                      //     decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(15.0),
+                      //       color: AppColor.kSecondaryLight,
+                      //     ),
+                      //     child: Padding(
+                      //       padding:
+                      //       const EdgeInsets.symmetric(horizontal: 40.0),
+                      //       child: Align(
+                      //           alignment: Alignment.centerRight,
+                      //           child: Image.asset('assets/icons/trash.png')),
+                      //     ),
+                      //   ),
+                      //   onDismissed: (direction) {
+                      //     try {
+                      //       setState(() {
+                      //         orderList.order.removeAt(index);
+                      //       });
+                      //     } catch (e) {
+                      //       // print(e);
+                      //     }
+                      //   },
+                      //   child: Container(
+                      //     margin: const EdgeInsets.symmetric(vertical: 10.0),
+                      //     padding: const EdgeInsets.all(10.0),
+                      //     decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(15.0),
+                      //       color: AppColor.white,
+                      //     ),
+                      //     child: Row(
+                      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //       children: [
+                      //         Row(
+                      //           children: [
+                      //             Image.asset(orderList.order[index].imagePath),
+                      //             const SizedBox(
+                      //               width: 20.0,
+                      //             ),
+                      //             Column(
+                      //               crossAxisAlignment:
+                      //               CrossAxisAlignment.start,
+                      //               children: [
+                      //                 Text(
+                      //                   orderList.order[index].name,
+                      //                   style: AppTextStyle.kTextHeader3
+                      //                       .copyWith(),
+                      //                 ),
+                      //                 const SizedBox(
+                      //                   height: 5.0,
+                      //                 ),
+                      //                 Text(
+                      //                   orderList.order[index].title,
+                      //                   style:
+                      //                   AppTextStyle.kTextHeader4.copyWith(
+                      //                     color: AppColor.grey,
+                      //                   ),
+                      //                 ),
+                      //                 const SizedBox(
+                      //                   height: 5.0,
+                      //                 ),
+                      //                 Text(
+                      //                   orderList.order[index].amount,
+                      //                   style:
+                      //                   AppTextStyle.kTextHeader.copyWith(
+                      //                     color: AppColor.kPrimary,
+                      //                     fontSize: 19.0,
+                      //                   ),
+                      //                 )
+                      //               ],
+                      //             ),
+                      //           ],
+                      //         ),
+                      //         Row(
+                      //           children: [
+                      //             GestureDetector(
+                      //               onTap: () {
+                      //                 setState(() {
+                      //                   productNumber <= 0
+                      //                       ? productNumber = 0
+                      //                       : productNumber--;
+                      //                 });
+                      //               },
+                      //               child: Container(
+                      //                 decoration: BoxDecoration(
+                      //                     borderRadius:
+                      //                     BorderRadius.circular(8.0),
+                      //                     color: AppColor.kPrimaryLigth),
+                      //                 child: Padding(
+                      //                   padding: const EdgeInsets.symmetric(
+                      //                       horizontal: 15.0, vertical: 20.0),
+                      //                   child: Image.asset(
+                      //                       'assets/icons/subtract.png'),
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //             const SizedBox(
+                      //               width: 20.0,
+                      //             ),
+                      //             Text('$productNumber'),
+                      //             const SizedBox(
+                      //               width: 20.0,
+                      //             ),
+                      //             GestureDetector(
+                      //               onTap: () {
+                      //                 setState(() {
+                      //                   productNumber++;
+                      //                 });
+                      //               },
+                      //               child: Container(
+                      //                 decoration: BoxDecoration(
+                      //                     borderRadius:
+                      //                     BorderRadius.circular(8.0),
+                      //                     color: AppColor.kPrimary),
+                      //                 child: Padding(
+                      //                   padding: const EdgeInsets.symmetric(
+                      //                       horizontal: 15.0, vertical: 15.0),
+                      //                   child: Image.asset(
+                      //                       'assets/icons/addtion.png'),
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                 ),
@@ -309,6 +323,148 @@ class _BuyScreenState extends State<BuyScreen> {
                   ],
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ChatCard extends StatefulWidget {
+  final Key indexKey;
+  final String imagePath;
+  final String name;
+  final String title;
+  final String amount;
+  final Function onDismissed;
+  const ChatCard(
+      {Key? key,
+      required this.indexKey,
+      required this.imagePath,
+      required this.name,
+      required this.title,
+      required this.amount,
+      required this.onDismissed})
+      : super(key: key);
+
+  @override
+  _ChatCardState createState() => _ChatCardState();
+}
+
+class _ChatCardState extends State<ChatCard> {
+  int itemNumber = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+      key: widget.indexKey,
+      direction: DismissDirection.endToStart,
+      background: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          color: AppColor.kSecondaryLight,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Image.asset('assets/icons/trash.png'),
+          ),
+        ),
+      ),
+      onDismissed: (direction) => widget.onDismissed,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          color: AppColor.white,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Image.asset(widget.imagePath),
+                const SizedBox(
+                  width: 20.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.name,
+                      style: AppTextStyle.kTextHeader3.copyWith(),
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      widget.title,
+                      style: AppTextStyle.kTextHeader4.copyWith(
+                        color: AppColor.grey,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      widget.amount,
+                      style: AppTextStyle.kTextHeader.copyWith(
+                        color: AppColor.kPrimary,
+                        fontSize: 19.0,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      itemNumber <= 0 ? itemNumber = 0 : itemNumber--;
+                    });
+
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: AppColor.kPrimaryLigth),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 20.0),
+                      child: Image.asset('assets/icons/subtract.png'),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 20.0,
+                ),
+                Text('$itemNumber'),
+                const SizedBox(
+                  width: 20.0,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      itemNumber++;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: AppColor.kPrimary),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 15.0),
+                      child: Image.asset('assets/icons/addtion.png'),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
