@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/onbording/onbording3_screen.dart';
+import 'package:food_delivery/utils/ui.dart'; 
+import 'onbording.dart';
 
 class Onbording2Screen extends StatefulWidget {
   const Onbording2Screen({Key? key}) : super(key: key);
@@ -20,9 +21,10 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               height: 350,
               width: 400,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/Illustartion1.png"),
-                      fit: BoxFit.cover)),
+                image: DecorationImage(
+                    image: AssetImage("assets/images/Illustartion1.png"),
+                    fit: BoxFit.cover),
+              ),
             ),
             const Padding(
               padding: EdgeInsets.only(top: 30),
@@ -30,9 +32,10 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
                 'Find your Comfort \n Food here',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'BentonSans Medium',
-                    fontSize: 25),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'BentonSans Medium',
+                  fontSize: 25,
+                ),
               ),
             ),
             const Padding(
@@ -44,27 +47,31 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               ),
             ),
             GestureDetector(
-              onTap: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Onbording3Screen(),),);
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Onbording3Screen(),
+                  ),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 40),
                 child: Container(
                   height: 60,
-                  width: 140,
+                  width: 157,
                   decoration: const BoxDecoration(
-                    color: Color.fromRGBO(83, 232, 139, 1),
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
+                    gradient: AppColor.authColor,
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       'Next',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
+                      style: AppTextStyle.kTextHeader3.copyWith(
+                        color: AppColor.white,
+                      ),
                     ),
                   ),
                 ),

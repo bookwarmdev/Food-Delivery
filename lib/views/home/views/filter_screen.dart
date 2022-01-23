@@ -17,8 +17,7 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Background(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column( 
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height - 100,
@@ -121,7 +120,7 @@ class _FilterScreenState extends State<FilterScreen> {
                 ],
               ),
             ),
-            const AuthButton(title: 'Search',),
+            AuthButton(title: 'Search', onTap: () => Navigator.pop(context),),
           ],
         ),
       ),

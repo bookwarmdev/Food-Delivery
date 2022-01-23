@@ -1,10 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/views/buy/buy_screen.dart';
+import 'package:flutter/material.dart'; 
+import 'package:food_delivery/utils/ui.dart'; 
+import 'package:food_delivery/views/buy/views/buy_screen.dart';
 import 'package:food_delivery/views/chat/view/chat_screen.dart';
 import 'package:food_delivery/views/home/views/home_screen.dart';
-import 'package:food_delivery/views/profile/profile_screen.dart';
+import 'package:food_delivery/views/profile/profile.dart'; 
+
+// models
+export './models/menu.dart';
+export './models/notification.dart';
+export './models/resturant.dart';
+
+//widgets
+export './widget/favorite_food.dart';
+export './widget/menu_list.dart';
+export './widget/resturant_list.dart';
+export './widget/resturant_list.dart';
+export './widget/search.dart';
+
+//views
+export './views/filter_screen.dart';
+export './views/home_screen.dart';
+export './views/menu_screen.dart';
+export './views/notification_screen.dart';
+export './views/restaurant_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,7 +35,7 @@ enum BottomIcon { home, profile, buy, chat }
 
 class _HomeState extends State<Home> {
   BottomIcon bottomIcon = BottomIcon.home;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +110,9 @@ class _HomeState extends State<Home> {
                           children: [
                             IconButton(
                               onPressed: () {
+                                setState(() {
+                                  
+                                });
                                 bottomIcon = BottomIcon.buy;
                               },
                               icon: Image.asset('assets/icons/Buy.png'),
