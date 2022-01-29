@@ -109,7 +109,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                         height: 5.0,
                                       ),
                                       Text(
-                                        orderList.order[index].amount,
+                                        '\$ $orderList.order[index].amount',
                                         style:
                                             AppTextStyle.kTextHeader.copyWith(
                                           color: AppColor.kPrimary,

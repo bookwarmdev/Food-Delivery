@@ -4,6 +4,9 @@ import 'package:food_delivery/utils/widget/background.dart';
 import 'package:food_delivery/views/buy/views/confirm_order_screen.dart';
 import 'package:food_delivery/views/buy/widget/order_list.dart';
 
+
+ double? totalPrice;
+
 class BuyScreen extends StatefulWidget {
   const BuyScreen({Key? key}) : super(key: key);
 
@@ -282,7 +285,7 @@ class _BuyScreenState extends State<BuyScreen> {
                           ),
                         ),
                         Text(
-                          '150 \$',
+                          '$totalPrice \$',
                           style: AppTextStyle.kTextHeader3.copyWith(
                             color: AppColor.white,
                           ),
@@ -336,7 +339,7 @@ class ChatCard extends StatefulWidget {
   final String imagePath;
   final String name;
   final String title;
-  final String amount;
+  final int amount;
   final Function onDismissed;
   const ChatCard(
       {Key? key,
@@ -354,9 +357,15 @@ class ChatCard extends StatefulWidget {
 
 class _ChatCardState extends State<ChatCard> {
   int itemNumber = 1;
+  double totalItemAmount = 0.0;
 
   @override
   Widget build(BuildContext context) {
+    totalPrice = 100.00;
+
+    totalItemAmount = widget.amount * itemNumber + 0.0;
+    List amounts = [totalItemAmount];
+
     return Dismissible(
       key: widget.indexKey,
       direction: DismissDirection.endToStart,
@@ -410,7 +419,7 @@ class _ChatCardState extends State<ChatCard> {
                       height: 5.0,
                     ),
                     Text(
-                      widget.amount,
+                      '\$${widget.amount}',
                       style: AppTextStyle.kTextHeader.copyWith(
                         color: AppColor.kPrimary,
                         fontSize: 19.0,
@@ -425,7 +434,8 @@ class _ChatCardState extends State<ChatCard> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      itemNumber <= 0 ? itemNumber = 0 : itemNumber--;
+                      itemNumber <= 1 ? itemNumber = 1 : itemNumber--;
+                      print(totalItemAmount);
                     });
 
                   },
@@ -451,6 +461,7 @@ class _ChatCardState extends State<ChatCard> {
                   onTap: () {
                     setState(() {
                       itemNumber++;
+                      print(totalItemAmount);
                     });
                   },
                   child: Container(
