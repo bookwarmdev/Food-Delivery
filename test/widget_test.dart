@@ -6,9 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
-
+ 
 void main() {
-  testWidgets('Mywidget as a title and message', (WidgetTester tester) async {
-    
-  });
+  testWidgets(
+      'Mywidget as a title and message', (WidgetTester tester) async {});
 }
