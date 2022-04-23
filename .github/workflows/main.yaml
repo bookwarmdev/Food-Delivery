@@ -1,9 +1,9 @@
 on: 
   push:
     branches:
-      - "dev"
-    tags: 
-       - 'v1.0'
+      - dev 
+    tags:
+      - v1.0
 name: Test, Build and Release apk
 jobs:
   build:
