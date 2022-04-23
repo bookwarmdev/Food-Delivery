@@ -14,7 +14,7 @@ jobs:
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
     - name: Create Release Apk
-    - uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{secret.FOODDELIVERYTOKEN}}   
