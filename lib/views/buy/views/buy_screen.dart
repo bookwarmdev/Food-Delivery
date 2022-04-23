@@ -268,8 +268,7 @@ class _OrderDtailsCardState extends State<OrderDtailsCard> {
         ),
       ),
       onDismissed: (direction) {
-        //TODO: working on dismissable error on the widget tre
-        widget.onDismissed;
+         widget.onDismissed;
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0),
