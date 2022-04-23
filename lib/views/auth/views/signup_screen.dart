@@ -51,7 +51,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
                       : MediaQuery.of(context).size.width / 2,
