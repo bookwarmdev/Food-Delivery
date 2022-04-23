@@ -1,7 +1,7 @@
 on: push
-  # push:
-  #   branches:
-  #     - dev
+# push:
+#   branches:
+#     - dev
 name: Test, Build and Release apk
 jobs:
   build:
@@ -21,4 +21,5 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
           token: ${{secrets.FOODDELIVERYTOKEN}}
+          commit: dev
           tags: v1.0.${{ github.run_number }}
