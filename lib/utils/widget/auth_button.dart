@@ -5,11 +5,8 @@ class AuthButton extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
 
-  const AuthButton({
-    Key? key,
-    required this.title,
-    required this.onTap
-  }) : super(key: key);
+  const AuthButton({Key? key, required this.title, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class AuthButton extends StatelessWidget {
             end: Alignment(-0.3, 0.0),
             colors: <Color>[
               AppColor.kPrimaryTin,
-              AppColor.kPrimary, 
+              AppColor.kPrimary,
             ],
           ),
         ),
@@ -57,12 +54,18 @@ class FilterMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: AppColor.kSecondaryLight.withOpacity(0.1),
+        color: MediaQuery.of(context).platformBrightness == Brightness.light
+            ? AppColor.kSecondaryLight.withOpacity(0.1)
+            : AppColor.dark.withOpacity(0.1),
       ),
       child: Center(
         child: Text(
           title,
-          style: AppTextStyle.kTextHeader4.copyWith(),
+          style: AppTextStyle.kTextHeader4.copyWith(
+            color: MediaQuery.of(context).platformBrightness == Brightness.light
+                ? AppColor.kSecondary
+                : AppColor.grey,
+          ),
         ),
       ),
     );

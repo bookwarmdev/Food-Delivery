@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/fonts.dart';
 import 'package:food_delivery/utils/ui.dart';
 
 class CallScreen extends StatefulWidget {
@@ -18,54 +16,73 @@ class _CallScreenState extends State<CallScreen> {
     return Scaffold(
       body: AuthBackground(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(),
             Column(
               children: [
                 Image.asset('assets/images/Photo_Profile4.png'),
-                const SizedBox(height: 20.0,),
-                Text('Courtney Henry', style: AppTextStyle.kTextHeader2.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),),
-                const SizedBox(height: 10.0,),
-                Text('Ringing . . .', style: AppTextStyle.kTextHeader3.copyWith(
-                  color: AppColor.grey,
-                  fontWeight: FontWeight.normal,
-                ),),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                Text(
+                  'Courtney Henry',
+                  style: AppTextStyle.kTextHeader2.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? AppColor.black
+                        : AppColor.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Text(
+                  'Ringing . . .',
+                  style: AppTextStyle.kTextHeader3.copyWith(
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
               ],
             ),
             Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   padding: const EdgeInsetsDirectional.all(10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50.0),
-                    color: AppColor.kPrimaryLigth
+                    color: MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? AppColor.kPrimaryLigth
+                        : AppColor.grey.withOpacity(0.2),
                   ),
                   child: IconButton(
-                    onPressed: (){
-                      setState(() {                      
-                      });
-      
+                    onPressed: () {
+                      setState(() {});
+
                       muteMic = !muteMic;
                     },
-                    icon: muteMic == false ? Image.asset('assets/icons/VolumeUp.png') : Image.asset('assets/icons/VolumeOff.png'), 
+                    icon: muteMic == false
+                        ? Image.asset('assets/icons/VolumeUp.png')
+                        : Image.asset('assets/icons/VolumeOff.png'),
                   ),
                 ),
-                const SizedBox(width: 50.0,),
+                const SizedBox(
+                  width: 50.0,
+                ),
                 Container(
                   padding: const EdgeInsetsDirectional.all(10.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.0),
-                    color: AppColor.red
-                  ),
+                      borderRadius: BorderRadius.circular(50.0),
+                      color: AppColor.red),
                   child: IconButton(
-                    onPressed: (){
+                    onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: SvgPicture.asset('assets/svgs/end.svg'), 
+                    icon: SvgPicture.asset('assets/svgs/end.svg'),
                   ),
                 ),
               ],

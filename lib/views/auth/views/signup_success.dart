@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/auth_background.dart';
 import '../auth.dart';
 
 class SignSuccess extends StatefulWidget {
@@ -17,8 +15,9 @@ class _SignSuccessState extends State<SignSuccess> {
     return Scaffold(
       body: AuthBackground(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Container(),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +33,7 @@ class _SignSuccessState extends State<SignSuccess> {
                       'Congrats',
                       style: TextStyle(
                         color: AppColor.kPrimary,
-                        fontSize: 45,
+                        fontSize: 30,
                         fontFamily: 'BentonSans_Bold',
                       ),
                     ),
@@ -44,7 +43,7 @@ class _SignSuccessState extends State<SignSuccess> {
                     child: Text(
                       'Your Profile is ready to Use',
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 23,
                         fontFamily: 'BentonSans_Bold',
                       ),
                     ),
@@ -63,7 +62,10 @@ class _SignSuccessState extends State<SignSuccess> {
               },
               child: Container(
                 height: 60,
-                width: 140,
+                width: 157,
+                margin: const EdgeInsets.only(
+                  bottom: 40.0,
+                ),
                 decoration: const BoxDecoration(
                   gradient: AppColor.authColor,
                   borderRadius: BorderRadius.all(

@@ -5,3 +5,5 @@ export './widget/auth_button.dart';
 export './widget/auth_background.dart';
 export './widget/background.dart';
 export './widget/bottom_nav.dart';
+export './widget/testimonials_card.dart';
+export './widget/popular_memu_card.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/utils/widget/navigator.dart';
 import 'package:food_delivery/views/home/widget/notification_list.dart';
@@ -32,15 +32,21 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: AppColor.white,
-                        boxShadow: [
-                          BoxShadow(
-                            offset: const Offset(0, 0),
-                            blurRadius: 50.0,
-                            spreadRadius: 0.0,
-                            color: AppColor.kblurColor.withOpacity(0.2),
-                          ),
-                        ],
+                        color: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? AppColor.white
+                            : AppColor.dark.withOpacity(0.4),
+                        boxShadow: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? [
+                                BoxShadow(
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 50.0,
+                                  spreadRadius: 0.0,
+                                  color: AppColor.kblurColor.withOpacity(0.2),
+                                ),
+                              ]
+                            : AppColor.appContanerShadowDark,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -56,10 +62,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    _noificationList
-                                        .notifications[index].text,
+                                    _noificationList.notifications[index].text,
                                     style: AppTextStyle.kTextHeader3.copyWith(
                                       letterSpacing: 1.0,
+                                      color: MediaQuery.of(context)
+                                                  .platformBrightness ==
+                                              Brightness.light
+                                          ? AppColor.black
+                                          : AppColor.white,
                                     ),
                                   ),
                                   const SizedBox(

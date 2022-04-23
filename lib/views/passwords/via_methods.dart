@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/navigator.dart';  
+import 'package:food_delivery/utils/widget/navigator.dart';
 import 'package:food_delivery/views/passwords/passwords.dart';
 
 class ViaMethods extends StatefulWidget {
@@ -16,45 +16,55 @@ class _ViaMethods extends State<ViaMethods> {
     return Scaffold(
       body: Background(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            NavigateBack(function: () => Navigator.pop(context), titel: ''),
-            const Text(
-              'Forgot Password',
-              style: TextStyle(
-                fontFamily: 'BentonSans_Bold',
-                fontSize: 30,
-                height: 1.2,
-              ),
-              textAlign: TextAlign.left,
-            ),
-            const Text(
-              'Select which contact details should we \nuse to reset your password',
-              style: TextStyle(fontSize: 15, height: 1.2),
-              textAlign: TextAlign.left,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Center(
-                child: Container(
-                  height: 110, 
-                  decoration: const BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 2,
-                      )
-                    ],
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NavigateBack(function: () => Navigator.pop(context), titel: ''),
+                const Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    fontFamily: 'BentonSans_Bold',
+                    fontSize: 25,
+                    height: 1.2,
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 25, 0, 0),
-                        child: Row(
+                  textAlign: TextAlign.left,
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                const Text(
+                  'Select which contact details should we \nuse to reset your password',
+                  style: TextStyle(
+                    fontSize: 12,
+                    height: 1.6,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 15.0,
+                    ),
+                    decoration: BoxDecoration(
+                      boxShadow: (MediaQuery.of(context).platformBrightness ==
+                              Brightness.light)
+                          ? AppColor.appShadow
+                          : AppColor.appShadowDark,
+                      color: (MediaQuery.of(context).platformBrightness ==
+                              Brightness.light)
+                          ? AppColor.white
+                          : AppColor.darkContainer.withOpacity(0.4),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
                           children: [
                             const Image(
                               image: AssetImage('assets/images/Message.png'),
@@ -63,70 +73,28 @@ class _ViaMethods extends State<ViaMethods> {
                               padding: const EdgeInsets.only(left: 10),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
                                     'Via sms',
-                                    style: TextStyle(fontSize: 18),
+                                    style: AppTextStyle.kBrandText.copyWith(
+                                      color: (MediaQuery.of(context)
+                                                  .platformBrightness ==
+                                              Brightness.light)
+                                          ? AppColor.grey
+                                          : AppColor.white,
+                                    ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 15),
+                                    padding: const EdgeInsets.only(top: 15),
                                     child: Text(
                                       '**** **** 6768',
-                                      style: TextStyle(
-                                          fontFamily: 'BentonSans_Bold',
-                                          fontSize: 18),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Center(
-                child: Container(
-                  height: 110, 
-                  decoration: const BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 2,
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 25, 0, 0),
-                        child: Row(
-                          children: [
-                            const Image(
-                              image: AssetImage('assets/images/Email.png'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'Via email',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 15),
-                                    child: Text(
-                                      '**** **** @gmail.com',
-                                      style: TextStyle(
-                                        fontFamily: 'BentonSans_Bold',
-                                        fontSize: 18,
+                                      style: AppTextStyle.kTextHeader2.copyWith(
+                                        fontSize: 16.0,
+                                        color: (MediaQuery.of(context)
+                                                    .platformBrightness ==
+                                                Brightness.light)
+                                            ? AppColor.black
+                                            : AppColor.white,
                                       ),
                                     ),
                                   )
@@ -135,11 +103,76 @@ class _ViaMethods extends State<ViaMethods> {
                             ),
                           ],
                         ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 15.0,
+                  ),
+                  decoration: BoxDecoration(
+                    boxShadow: (MediaQuery.of(context).platformBrightness ==
+                            Brightness.light)
+                        ? AppColor.appShadow
+                        : AppColor.appShadowDark,
+                    color: (MediaQuery.of(context).platformBrightness ==
+                            Brightness.light)
+                        ? AppColor.white
+                        : AppColor.darkContainer.withOpacity(0.4),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Image(
+                            image: AssetImage('assets/images/Email.png'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Via email',
+                                  style: AppTextStyle.kBrandText.copyWith(
+                                    color: (MediaQuery.of(context)
+                                                .platformBrightness ==
+                                            Brightness.light)
+                                        ? AppColor.grey
+                                        : AppColor.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Text(
+                                    '**** **** @gmail.com',
+                                    style: AppTextStyle.kTextHeader2.copyWith(
+                                      fontSize: 16.0,
+                                      color: (MediaQuery.of(context)
+                                                  .platformBrightness ==
+                                              Brightness.light)
+                                          ? AppColor.black
+                                          : AppColor.white,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
             GestureDetector(
               onTap: () {
@@ -155,7 +188,7 @@ class _ViaMethods extends State<ViaMethods> {
                 child: Center(
                   child: Container(
                     height: 60,
-                    width: 141,
+                    width: 157,
                     decoration: const BoxDecoration(
                       color: Color.fromRGBO(83, 232, 139, 1),
                       gradient: AppColor.authColor,
@@ -176,7 +209,8 @@ class _ViaMethods extends State<ViaMethods> {
                   ),
                 ),
               ),
-            )
+            ),
+            Container()
           ],
         ),
       ),

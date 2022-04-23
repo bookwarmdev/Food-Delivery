@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/ui.dart'; 
+import 'package:food_delivery/utils/ui.dart';
 import 'onbording.dart';
 
 class Onbording2Screen extends StatefulWidget {
@@ -13,18 +13,14 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 25),
-        child: Column(
-          children: [
-            Container(
-              height: 350,
-              width: 400,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/Illustartion1.png"),
-                    fit: BoxFit.cover),
-              ),
+      body: SafeArea(
+        child: Column( 
+          children: [ 
+            Image(
+              image: const  AssetImage("assets/images/Illustartion1.png"),
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 1.7,
             ),
             const Padding(
               padding: EdgeInsets.only(top: 30),
@@ -43,7 +39,10 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               child: Text(
                 'Here you can find a Chef for every \n taste and color. Enjoy!',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, letterSpacing: 1.5),
+                style: TextStyle(
+                  fontSize: 15,
+                  letterSpacing: 1.5,
+                ),
               ),
             ),
             GestureDetector(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/views/auth/auth.dart';  
+import 'package:food_delivery/views/auth/auth.dart';
 
 class Onbording3Screen extends StatefulWidget {
   const Onbording3Screen({Key? key}) : super(key: key);
@@ -13,19 +13,14 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 25),
+      body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 350,
-              width: 400,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/Illustration2.png"),
-                  fit: BoxFit.cover,
-                ),
-              ),
+            Image(
+              image: const AssetImage("assets/images/Illustration2.png"),
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 1.7,
             ),
             const Padding(
               padding: EdgeInsets.only(top: 30),
@@ -33,9 +28,10 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
                 'Food Ninja is Where your \n Confort Food Lives',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'BentonSans Medium',
-                    fontSize: 25,),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'BentonSans Medium',
+                  fontSize: 25,
+                ),
               ),
             ),
             const Padding(
@@ -43,7 +39,10 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
               child: Text(
                 'Enjoy a fast and smooth delivery at \n your doorstep',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, letterSpacing: 1.5,),
+                style: TextStyle(
+                  fontSize: 15,
+                  letterSpacing: 1.5,
+                ),
               ),
             ),
             GestureDetector(
@@ -61,19 +60,21 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
                   height: 60,
                   width: 157,
                   decoration: const BoxDecoration(
-                    color: Color.fromRGBO(83, 232, 139, 1),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    gradient: AppColor.authColor
-                  ),
-                  child:  Center(
-                      child: Text(
-                    'Next',
-                    style: AppTextStyle.kTextHeader3.copyWith(
-                      color: AppColor.white,
-                    )
-                  )),
+                      color: Color.fromRGBO(
+                        83,
+                        232,
+                        139,
+                        1,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      gradient: AppColor.authColor),
+                  child: Center(
+                      child: Text('Next',
+                          style: AppTextStyle.kTextHeader3.copyWith(
+                            color: AppColor.white,
+                          ))),
                 ),
               ),
             )

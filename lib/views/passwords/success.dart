@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/widget/auth_background.dart';
-import 'package:food_delivery/views/auth/auth.dart';
+ import 'package:food_delivery/utils/ui.dart';
+ import 'package:food_delivery/views/auth/auth.dart';
 
 class Success extends StatefulWidget {
   const Success({Key? key}) : super(key: key);
@@ -16,10 +15,10 @@ class _Success extends State<Success> {
     return Scaffold(
       body: AuthBackground(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Container(),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Image(
                   image: AssetImage("assets/images/Illustration.png"),
@@ -34,9 +33,6 @@ class _Success extends State<Success> {
                       fontFamily: 'BentonSans_Bold',
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 30.0,
                 ),
                 Text(
                   'Password Reset Successful',
@@ -59,6 +55,7 @@ class _Success extends State<Success> {
               child: Container(
                 height: 60,
                 width: 140,
+                margin: const EdgeInsets.only(bottom: 50.0),
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(83, 232, 139, 1),
                   gradient: AppColor.authColor,
