@@ -23,3 +23,4 @@ jobs:
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{secrets.FOODDELIVERYTOKEN}}   
+        tags: v1.0.${{ github.run_number }}
