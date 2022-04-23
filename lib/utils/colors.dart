@@ -10,6 +10,8 @@ class AppColor {
   static const red = Color(0xFFFF4B4B);
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const dark = Color(0xFF0D0D0D);
+  static const darkContainer = Color(0xFF000000);
   static const grey = Color(0xFF808080);
   static const greyLight = Color(0xFFF3F3F6);
   static const authColor = LinearGradient(
@@ -19,4 +21,26 @@ class AppColor {
       AppColor.kPrimary,
     ],
   );
+
+  static List<BoxShadow> appShadow = [
+    BoxShadow(
+      offset: const Offset(0, 5),
+      spreadRadius: 0,
+      color: kblurColor.withOpacity(0.1),
+      blurRadius: 6.0,
+    )
+  ];
+
+  static List<BoxShadow>? appShadowDark;
+
+  static List<BoxShadow> appContanerShadow = [
+    BoxShadow(
+      offset: const Offset(0, 0),
+      blurRadius: 50.0,
+      spreadRadius: 0.0,
+      color: AppColor.kblurColor.withOpacity(0.2),
+    ),
+  ];
+    static List<BoxShadow>? appContanerShadowDark;
+
 }

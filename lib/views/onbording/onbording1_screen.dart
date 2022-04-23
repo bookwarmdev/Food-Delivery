@@ -36,17 +36,22 @@ class _Onbording1Screen extends State<Onbording1Screen> {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Image(
+          children: [
+            const Image(
               image: AssetImage("assets/images/Logo.png"),
             ),
-            Text(
+            const Text(
               'Food Ninja',
               style: AppTextStyle.kBrandHeader,
             ),
             Text(
               'Deliver Favourite Food',
-              style: AppTextStyle.kBrandText,
+              style: AppTextStyle.kBrandText.copyWith(
+                color: (MediaQuery.of(context).platformBrightness ==
+                        Brightness.light)
+                    ? AppColor.black
+                    : AppColor.white,
+              ),
             )
           ],
         ),

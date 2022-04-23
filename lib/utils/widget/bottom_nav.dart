@@ -4,13 +4,13 @@ import 'package:food_delivery/utils/ui.dart';
 class BottomNav extends StatelessWidget {
   final VoidCallback onPressed;
   final bool bottomIcon;
-  final String text, activeImagePath; 
+  final String text, activeImagePath;
   final Widget widget;
   final Widget iconWidget;
   const BottomNav({
     Key? key,
     required this.onPressed,
-    required this.bottomIcon, 
+    required this.bottomIcon,
     required this.activeImagePath,
     required this.text,
     required this.widget,
@@ -26,7 +26,10 @@ class BottomNav extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: AppColor.kPrimaryLigth,
+                    color: MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? AppColor.kPrimaryLigth
+                        : AppColor.kPrimaryTin.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   padding: const EdgeInsets.only(
@@ -37,14 +40,16 @@ class BottomNav extends StatelessWidget {
                       const SizedBox(
                         width: 8.0,
                       ),
-                      Text(text),
+                      Text(
+                        text,
+                      ),
                     ],
                   ),
                 ),
                 widget,
               ],
             )
-          : iconWidget, 
+          : iconWidget,
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/ui.dart';
 
 class Detailmenu extends StatefulWidget {
   const Detailmenu({Key? key}) : super(key: key);
@@ -12,73 +12,111 @@ class _DetailmenuState extends State<Detailmenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+          MediaQuery.of(context).platformBrightness == Brightness.light
+              ? Colors.white
+              : AppColor.dark,
       body: Stack(
         children: [
           Container(
             height: 350,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/Photo_Menu.png"),
-                  fit: BoxFit.cover),
+                image: AssetImage("assets/images/Photo_Menu1.png"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.only(
                 top: 250,
               ),
               child: Container(
-                height: 800,
-                width: 420,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(45),
-                        topRight: Radius.circular(45))),
+                padding: MediaQuery.of(context).size.width < 600
+                    ? const EdgeInsets.symmetric(horizontal: 0.0)
+                    : const EdgeInsets.symmetric(horizontal: 50.0),
+                decoration: BoxDecoration(
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.white
+                      : AppColor.dark,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(45),
+                    topRight: Radius.circular(45),
+                  ),
+                ),
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
+                  padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             height: 40,
                             width: 90,
                             decoration: BoxDecoration(
-                                color: Colors.green[50],
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(20))),
+                              color:
+                                  MediaQuery.of(context).platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.kPrimaryLigth
+                                      : AppColor.kPrimary.withOpacity(0.2),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
                             child: const Center(
-                                child: Text(
-                              'Popular',
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontFamily: 'BentonSans_Medium',
-                              ),
-                            )),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 170),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.green[50],
-                              radius: 20,
-                              child: const ImageIcon(
-                                AssetImage("assets/icons/Shape.png"),
-                                color: Colors.green,
+                              child: Text(
+                                'Popular',
+                                style: TextStyle(
+                                  color: AppColor.kPrimary,
+                                  fontFamily: 'BentonSans_Medium',
+                                ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.red[50],
-                              radius: 20,
-                              child: const ImageIcon(
-                                AssetImage("assets/icons/heart.png"),
-                                color: Colors.red,
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor:
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.light
+                                        ? AppColor.kPrimaryLigth
+                                        : AppColor.kPrimary.withOpacity(0.2),
+                                radius: 20,
+                                child: const ImageIcon(
+                                  AssetImage(
+                                    "assets/icons/Shape.png",
+                                  ),
+                                  color: AppColor.kPrimary,
+                                ),
                               ),
-                            ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: CircleAvatar(
+                                  backgroundColor: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.kSecondaryLight
+                                          .withOpacity(0.4)
+                                      : AppColor.red.withOpacity(0.2),
+                                  radius: 20,
+                                  child: ImageIcon(
+                                    const AssetImage(
+                                      "assets/icons/heart.png",
+                                    ),
+                                    color: MediaQuery.of(context)
+                                                .platformBrightness ==
+                                            Brightness.light
+                                        ? AppColor.kSecondary
+                                        : AppColor.red,
+                                  ),
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),
@@ -173,200 +211,33 @@ class _DetailmenuState extends State<Detailmenu> {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 20),
+                        padding: EdgeInsets.only(
+                          top: 20,
+                          bottom: 10.0,
+                        ),
                         child: Text(
                           "Testimonials",
                           style: TextStyle(
                               fontFamily: 'BentonSans_Bold', fontSize: 15),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: Container(
-                          height: 120,
-                          width: 400,
-                          decoration: BoxDecoration(
-                              color: AppColor.white,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(15),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  blurRadius: 7,
-                                  offset: const Offset(0, 3),
-                                )
-                              ]),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Image(
-                                  image: AssetImage(
-                                    "assets/images/Photo_Profile.png",
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const [
-                                      Text(
-                                        "Dianne Russell",
-                                        style: TextStyle(
-                                          fontFamily: 'BentonSans_Bold',
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      Text(
-                                        '12 April, 2021',
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 18),
-                                        child: Text(
-                                          'This is great, So delicious. You\nmust be here with your family...',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 12,
-                                            height: 1.5,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Container(
-                                    height: 40,
-                                    width: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.green[50],
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(17),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: const [
-                                        Image(
-                                          image: AssetImage(
-                                            "assets/images/Icon_Star1.png",
-                                          ),
-                                        ),
-                                        Text(
-                                          '5',
-                                          style: TextStyle(
-                                            color: AppColor.kPrimary,
-                                            fontFamily: 'BentonSans_Bold',
-                                            fontSize: 22,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                      const TestimonialsCard(
+                        imagePath: 'assets/images/Photo_Profile.png',
+                        name: 'Dianne Russell',
+                        content:
+                            'This is great, So delicious. You\nmust be here with your family...',
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 15,
-                        ),
-                        child: Container(
-                          height: 120,
-                          width: 400,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(15),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    blurRadius: 7,
-                                    offset: const Offset(0, 3))
-                              ]),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Image(
-                                  image: AssetImage(
-                                    "assets/images/Photo_Profilee.png",
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const [
-                                      Text(
-                                        "Dianne Russell",
-                                        style: TextStyle(
-                                            fontFamily: 'BentonSans_Bold',
-                                            fontSize: 18),
-                                      ),
-                                      Text(
-                                        '12 April, 2021',
-                                        style: TextStyle(
-                                            color: Colors.grey, fontSize: 15),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 18),
-                                        child: Text(
-                                          'This is great, So delicious. You\nmust be here with your family...',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 12,
-                                              height: 1.5,),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Container(
-                                    height: 40,
-                                    width: 60,
-                                    decoration: BoxDecoration(
-                                        color: Colors.green[50],
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(17))),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: const [
-                                        Image(
-                                            image: AssetImage(
-                                                "assets/images/Icon_Star1.png")),
-                                        Text(
-                                          '5',
-                                          style: TextStyle(
-                                              color: AppColor.kPrimary,
-                                              fontFamily: 'BentonSans_Bold',
-                                              fontSize: 22),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      const TestimonialsCard(
+                        imagePath: 'assets/images/Photo_Profilee.png',
+                        name: 'Dianne Russell',
+                        content:
+                            'This is great, So delicious. You\nmust be here with your family...',
+                      ),
+                      const SizedBox(
+                        height: 100.0,
                       ),
                     ],
                   ),
@@ -375,32 +246,36 @@ class _DetailmenuState extends State<Detailmenu> {
             ),
           ),
           Positioned(
-            bottom: 20.0, 
+            bottom: 20.0,
             right: 0,
             left: 0,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                height: 60, 
+                height: 60,
                 decoration: BoxDecoration(
-                    gradient: AppColor.authColor,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
+                  gradient: AppColor.authColor,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 7,
-                          offset: const Offset(0, 3))
-                    ]),
+                  ],
+                ),
                 child: const Center(
-                    child: Text(
-                  'Add To Cart',
-                  style: TextStyle(
+                  child: Text(
+                    'Add To Cart',
+                    style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'BentonSans_Bold',
-                      fontSize: 16),
-                )),
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),

@@ -24,7 +24,7 @@ class _PaymentMethod extends State<PaymentMethod> {
               'Payment Method',
               style: TextStyle(
                 fontFamily: 'BentonSans_Bold',
-                fontSize: 30,
+                fontSize: 25,
                 height: 1.2,
               ),
               textAlign: TextAlign.left,
@@ -32,36 +32,42 @@ class _PaymentMethod extends State<PaymentMethod> {
             const Text(
               'This data will be displayed in your account \naccount profile for security',
               style: TextStyle(
-                fontSize: 15,
-                height: 1.2,
+                fontSize: 12,
+                height: 1.5,
               ),
               textAlign: TextAlign.left,
             ),
             Center(
-              child: Column( 
+              child: Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Container(
                       height: 70,
                       width: 350,
-                      decoration: const BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 2,
-                          ),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
+                      decoration: BoxDecoration(
+                        boxShadow: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.appShadow
+                            : AppColor.appShadowDark,
+                        color: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.white
+                            : AppColor.darkContainer.withOpacity(0.4),
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(15),
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Image(
-                          image: AssetImage(
-                            'assets/images/paypal.png',
-                          ),
+                          image: (MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light)
+                              ? const AssetImage(
+                                  'assets/images/paypal.png',
+                                )
+                              : const AssetImage(
+                                  'assets/images/paypal1.png',
+                                ),
                         ),
                       ),
                     ),
@@ -71,23 +77,29 @@ class _PaymentMethod extends State<PaymentMethod> {
                     child: Container(
                       height: 70,
                       width: 350,
-                      decoration: const BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 2,
-                          )
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
+                      decoration: BoxDecoration(
+                        boxShadow: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.appShadow
+                            : AppColor.appShadowDark,
+                        color: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.white
+                            : AppColor.darkContainer.withOpacity(0.4),
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(15),
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Image(
-                          image: AssetImage(
-                            'assets/images/visa.png',
-                          ),
+                          image: (MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light)
+                              ? const AssetImage(
+                                  'assets/images/visa.png',
+                                )
+                              : const AssetImage(
+                                  'assets/images/visa1.png',
+                                ),
                         ),
                       ),
                     ),
@@ -97,23 +109,29 @@ class _PaymentMethod extends State<PaymentMethod> {
                     child: Container(
                       height: 70,
                       width: 350,
-                      decoration: const BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 2,
-                          )
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
+                      decoration: BoxDecoration(
+                        boxShadow: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.appShadow
+                            : AppColor.appShadowDark,
+                        color: (MediaQuery.of(context).platformBrightness ==
+                                Brightness.light)
+                            ? AppColor.white
+                            : AppColor.darkContainer.withOpacity(0.4),
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(15),
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Image(
-                          image: AssetImage(
-                            'assets/images/Payoneer.png',
-                          ),
+                          image: (MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light)
+                              ? const AssetImage(
+                                  'assets/images/Payoneer.png',
+                                )
+                              : const AssetImage(
+                                  'assets/images/Payoneer1.png',
+                                ),
                         ),
                       ),
                     ),
@@ -135,7 +153,7 @@ class _PaymentMethod extends State<PaymentMethod> {
                 child: Center(
                   child: Container(
                     height: 60,
-                    width: 141,
+                    width: 157,
                     decoration: const BoxDecoration(
                       gradient: AppColor.authColor,
                       borderRadius: BorderRadius.all(

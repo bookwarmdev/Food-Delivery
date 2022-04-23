@@ -20,10 +20,11 @@ class _ResturantScreenState extends State<ResturantScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NavigateBack(
-                function: () {
-                  Navigator.pop(context);
-                },
-                titel: 'Restaurants'),
+              function: () {
+                Navigator.pop(context);
+              },
+              titel: 'Restaurants',
+            ),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -37,31 +38,43 @@ class _ResturantScreenState extends State<ResturantScreen> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(22.0),
-                        boxShadow: const [
-                          BoxShadow(
-                            offset: Offset(12, 26),
-                            spreadRadius: 0,
-                            color: AppColor.kPrimaryLigth,
-                            blurRadius: 50.0,
-                          )
-                        ],
-                        color: AppColor.white,
+                        boxShadow: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? const [
+                                BoxShadow(
+                                  offset: Offset(12, 26),
+                                  spreadRadius: 0,
+                                  color: AppColor.kPrimaryLigth,
+                                  blurRadius: 50.0,
+                                )
+                              ]
+                            : AppColor.appContanerShadowDark,
+                        color: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? AppColor.white
+                            : AppColor.dark.withOpacity(0.4),
                       ),
                       width: 140.0,
                       height: 150.0,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(_resturantList.restureant[index].imagePath),
+                          Image.asset(
+                            _resturantList.restureant[index].imagePath,
+                          ),
                           const SizedBox(
                             height: 10.0,
                           ),
                           Text(
                             _resturantList.restureant[index].name,
                             style: AppTextStyle.kTextHeader2.copyWith(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color:
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.light
+                                        ? AppColor.black
+                                        : AppColor.white),
                           ),
                           const SizedBox(
                             height: 5.0,

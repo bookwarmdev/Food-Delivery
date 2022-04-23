@@ -34,15 +34,22 @@ class _MenuScreenState extends State<MenuScreen> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(22.0),
-                          boxShadow: [
-                            BoxShadow(
-                              offset: const Offset(0, 0),
-                              spreadRadius: 0,
-                              color: AppColor.kblurColor.withOpacity(0.1),
-                              blurRadius: 50.0,
-                            )
-                          ],
-                          color: AppColor.white,
+                          boxShadow: MediaQuery.of(context)
+                                      .platformBrightness ==
+                                  Brightness.light
+                              ? [
+                                  BoxShadow(
+                                    offset: const Offset(0, 0),
+                                    spreadRadius: 0,
+                                    color: AppColor.kblurColor.withOpacity(0.1),
+                                    blurRadius: 50.0,
+                                  )
+                                ]
+                              : AppColor.appContanerShadowDark,
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light
+                              ? AppColor.white
+                              : AppColor.dark.withOpacity(0.4),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(15.0),
@@ -59,7 +66,14 @@ class _MenuScreenState extends State<MenuScreen> {
                                     children: [
                                       Text(
                                         _menuList.menu[index].name,
-                                        style: AppTextStyle.kTextHeader3,
+                                        style:
+                                            AppTextStyle.kTextHeader3.copyWith(
+                                          color: MediaQuery.of(context)
+                                                      .platformBrightness ==
+                                                  Brightness.light
+                                              ? AppColor.black
+                                              : AppColor.white,
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 5.0,

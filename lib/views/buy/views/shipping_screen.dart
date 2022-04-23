@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/ui.dart';
-import 'package:food_delivery/utils/widget/background.dart';
 import 'package:food_delivery/utils/widget/navigator.dart';
 
 class ShippingScreen extends StatefulWidget {
@@ -33,15 +32,21 @@ class _ShippingScreenState extends State<ShippingScreen> {
                         horizontal: 10.0, vertical: 20.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: AppColor.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(0, 0),
-                          blurRadius: 50.0,
-                          spreadRadius: 0.0,
-                          color: AppColor.kblurColor.withOpacity(0.2),
-                        ),
-                      ],
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? AppColor.white
+                          : AppColor.dark.withOpacity(0.4),
+                      boxShadow: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? [
+                              BoxShadow(
+                                offset: const Offset(0, 0),
+                                blurRadius: 50.0,
+                                spreadRadius: 0.0,
+                                color: AppColor.kblurColor.withOpacity(0.2),
+                              ),
+                            ]
+                          : AppColor.appContanerShadowDark,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +73,11 @@ class _ShippingScreenState extends State<ShippingScreen> {
                                   overflow: TextOverflow.clip,
                                   fontSize: 15.0,
                                   height: 1.3,
-
+                                  color: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.black
+                                      : AppColor.white,
                                 ),
                               ),
                             )
@@ -88,15 +97,21 @@ class _ShippingScreenState extends State<ShippingScreen> {
                         horizontal: 10.0, vertical: 10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: AppColor.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(0, 0),
-                          blurRadius: 50.0,
-                          spreadRadius: 0.0,
-                          color: AppColor.kblurColor.withOpacity(0.2),
-                        ),
-                      ],
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? AppColor.white
+                          : AppColor.dark.withOpacity(0.4),
+                      boxShadow: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? [
+                              BoxShadow(
+                                offset: const Offset(0, 0),
+                                blurRadius: 50.0,
+                                spreadRadius: 0.0,
+                                color: AppColor.kblurColor.withOpacity(0.2),
+                              ),
+                            ]
+                          : AppColor.appContanerShadowDark,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,13 +136,18 @@ class _ShippingScreenState extends State<ShippingScreen> {
                                 style: AppTextStyle.kTextHeader3.copyWith(
                                   fontWeight: FontWeight.normal,
                                   overflow: TextOverflow.clip,
-                                  fontSize: 15.0, 
+                                  fontSize: 15.0,
                                   height: 1.3,
+                                  color: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.black
+                                      : AppColor.white,
                                 ),
                               ),
                             ),
                           ],
-                        ),  
+                        ),
                         TextButton(
                           onPressed: () {},
                           child: Text(

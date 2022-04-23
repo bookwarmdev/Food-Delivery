@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
-import 'package:food_delivery/utils/widget/auth_background.dart';
+import 'package:food_delivery/utils/ui.dart';
 import '../auth.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -17,17 +16,16 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: AuthBackground(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10.0,
-            ),
-            Column(
+        child: SafeArea(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
               children: [
                 const Image(
-                  image: AssetImage("assets/images/Logo.png"),
+                  image: AssetImage(
+                    "assets/images/Logo.png",
+                  ),
                 ),
                 const Text(
                   'Food Ninja',
@@ -47,148 +45,175 @@ class _SignupScreenState extends State<SignupScreen> {
                   padding: EdgeInsets.only(top: 17),
                   child: Text(
                     'Sign Up For Free',
-                    style: TextStyle( 
-                        fontSize: 25,
-                        fontFamily: 'BentonSans_Bold',
-                        ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: const Image(
-                        image: AssetImage("assets/icons/Profile.png"),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      labelText: 'Acount',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'BentonSans_Bold',
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: const Image(
-                        image: AssetImage("assets/icons/Message.png"),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      labelText: 'Email',
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        prefixIcon: const Image(
-                          image: AssetImage("assets/icons/Lock.png"),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        labelText: 'Password',
-                        suffixIcon: IconButton(
-                            icon: Icon(
-                              _isObscure
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                _isObscure = !_isObscure;
-                              });
-                            })),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(35, 10, 0, 0),
-                  child: Row(
+                Container(
+                  width: MediaQuery.of(context).size.width < 600
+                      ? MediaQuery.of(context).size.width
+                      : MediaQuery.of(context).size.width / 2,
+                  child: Column(
                     children: [
-                      Center(
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _value = !_value;
-                            });
-                          },
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColor.kPrimary,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            prefixIcon: const Image(
+                              image: AssetImage("assets/icons/Profile.png"),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: _value
-                                  ? const Icon(
-                                      Icons.check,
-                                      size: 15,
-                                      color: Colors.white,
-                                    )
-                                  : const Icon(
-                                      Icons.check_box_outline_blank,
-                                      size: 15,
-                                      color: AppColor.kPrimary,
-                                    ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            labelText: 'Acount',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            prefixIcon: const Image(
+                              image: AssetImage("assets/icons/Message.png"),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            labelText: 'Email',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            prefixIcon: const Image(
+                              image: AssetImage("assets/icons/Lock.png"),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            labelText: 'Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _isObscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure = !_isObscure;
+                                });
+                              },
                             ),
                           ),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 13),
-                        child: Text(
-                          "Keep Me Signed In",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(35, 7, 0, 0),
-                  child: Row(
-                    children: [
-                      Center(
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _valuee = !_valuee;
-                            });
-                          },
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColor.kPrimary),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: _valuee
-                                  ? const Icon(
-                                      Icons.check,
-                                      size: 15,
-                                      color: Colors.white,
-                                    )
-                                  : const Icon(Icons.check_box_outline_blank,
-                                      size: 15, color: Colors.green),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: Row(
+                          children: [
+                            Center(
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _value = !_value;
+                                  });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    gradient: AppColor.authColor,
+                                    boxShadow: AppColor.appShadow,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: _value
+                                        ? const Icon(
+                                            Icons.check,
+                                            size: 15,
+                                            color: Colors.white,
+                                          )
+                                        : const Icon(
+                                            Icons.check_box_outline_blank,
+                                            size: 15,
+                                            color: AppColor.kPrimary,
+                                          ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 13),
+                              child: Text(
+                                "Keep Me Signed In",
+                                style: AppTextStyle.kBrandText.copyWith(
+                                  color: (MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light)
+                                      ? AppColor.black
+                                      : AppColor.white,
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 13),
-                        child: Text(
-                          "Email me About Special Pricing",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+                        child: Row(
+                          children: [
+                            Center(
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _valuee = !_valuee;
+                                  });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    gradient: AppColor.authColor,
+                                    boxShadow: AppColor.appShadow,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: _valuee
+                                        ? const Icon(
+                                            Icons.check,
+                                            size: 15,
+                                            color: Colors.white,
+                                          )
+                                        : const Icon(
+                                            Icons.check_box_outline_blank,
+                                            size: 15,
+                                            color: Colors.green,
+                                          ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 13),
+                              child: Text(
+                                "Email me About Special Pricing",
+                                style: AppTextStyle.kBrandText.copyWith(
+                                  color: (MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light)
+                                      ? AppColor.black
+                                      : AppColor.white,
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -205,7 +230,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     padding: const EdgeInsets.only(top: 10),
                     child: Container(
                       height: 60,
-                      width: 141,
+                      width: 175,
                       decoration: const BoxDecoration(
                         gradient: AppColor.authColor,
                         borderRadius: BorderRadius.all(
@@ -229,7 +254,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LogInScreen()),
+                        builder: (context) => const LogInScreen(),
+                      ),
                     );
                   },
                   child: const Text(
@@ -242,8 +268,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
 

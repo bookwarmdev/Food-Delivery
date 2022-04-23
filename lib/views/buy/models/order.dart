@@ -3,7 +3,7 @@ class Order {
   String imagePath;
   String name;
   String title;
-  String amount;
+  int amount;
 
   Order({
     required this.imagePath,

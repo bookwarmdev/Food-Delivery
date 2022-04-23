@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/ui.dart';
 import 'package:food_delivery/utils/widget/navigator.dart';
 import 'package:food_delivery/views/buy/views/order_screen.dart';
@@ -37,15 +36,21 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                         horizontal: 10.0, vertical: 15.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: AppColor.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(0, 0),
-                          blurRadius: 50.0,
-                          spreadRadius: 0.0,
-                          color: AppColor.kblurColor.withOpacity(0.2),
-                        ),
-                      ],
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? AppColor.white
+                          : AppColor.dark.withOpacity(0.4),
+                      boxShadow: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? [
+                              BoxShadow(
+                                offset: const Offset(0, 0),
+                                blurRadius: 50.0,
+                                spreadRadius: 0.0,
+                                color: AppColor.kblurColor.withOpacity(0.2),
+                              ),
+                            ]
+                          : AppColor.appContanerShadowDark,
                     ),
                     child: Column(
                       children: [
@@ -86,10 +91,15 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                               child: Text(
                                 '4517 Washington Ave. Manchester, Kentucky 39495',
                                 style: AppTextStyle.kTextHeader3.copyWith(
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.bold,
                                   overflow: TextOverflow.clip,
                                   fontSize: 15.0,
                                   height: 1.3,
+                                  color: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.black
+                                      : AppColor.white,
                                 ),
                               ),
                             )
@@ -109,15 +119,21 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                         horizontal: 10.0, vertical: 15.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: AppColor.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(0, 0),
-                          blurRadius: 50.0,
-                          spreadRadius: 0.0,
-                          color: AppColor.kblurColor.withOpacity(0.2),
-                        ),
-                      ],
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? AppColor.white
+                          : AppColor.dark.withOpacity(0.4),
+                      boxShadow: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? [
+                              BoxShadow(
+                                offset: const Offset(0, 0),
+                                blurRadius: 50.0,
+                                spreadRadius: 0.0,
+                                color: AppColor.kblurColor.withOpacity(0.2),
+                              ),
+                            ]
+                          : AppColor.appContanerShadowDark,
                     ),
                     child: Column(
                       children: [
@@ -151,15 +167,24 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Image.asset('assets/images/paypal.png'),
+                            Image.asset(
+                                MediaQuery.of(context).platformBrightness ==
+                                        Brightness.light
+                                    ? 'assets/images/paypal.png'
+                                    : 'assets/images/paypal1.png'),
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
                                 '2121 6352 8465 12345',
                                 style: AppTextStyle.kTextHeader3.copyWith(
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.bold,
                                   overflow: TextOverflow.ellipsis,
                                   fontSize: 20.0,
+                                  color: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? AppColor.black
+                                      : AppColor.white,
                                 ),
                               ),
                             ),
@@ -173,7 +198,6 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                   ),
                 ],
               ),
-
               Container(
                 margin: const EdgeInsets.only(bottom: 20.0),
                 decoration: BoxDecoration(
@@ -277,10 +301,11 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const OrderScreen()));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OrderScreen(),
+                            ),
+                          );
                         },
                         child: Container(
                           decoration: BoxDecoration(
