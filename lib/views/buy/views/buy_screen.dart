@@ -19,201 +19,209 @@ class _BuyScreenState extends State<BuyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Background(
-        child: Column(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  'Order details',
-                  style: AppTextStyle.kTextHeader2.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: MediaQuery.of(context).platformBrightness ==
-                            Brightness.light
-                        ? AppColor.black
-                        : AppColor.white,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 20.0,
                   ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width < 600
-                      ? MediaQuery.of(context).size.height / 2
-                      : MediaQuery.of(context).size.height / 1.5,
+                  Text(
+                    'Order details',
+                    style: AppTextStyle.kTextHeader2.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? AppColor.black
+                          : AppColor.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width < 600
+                        ? MediaQuery.of(context).size.height / 2
+                        : MediaQuery.of(context).size.height / 1.5,
+                    width: MediaQuery.of(context).size.width < 600
+                        ? MediaQuery.of(context).size.width
+                        : MediaQuery.of(context).size.width / 1.1,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: orderList.order.length,
+                      itemBuilder: (context, index) {
+                        return OrderDtailsCard(
+                          indexKey: Key(index.toString()),
+                          imagePath: orderList.order[index].imagePath,
+                          name: orderList.order[index].name,
+                          title: orderList.order[index].title,
+                          amount: orderList.order[index].amount,
+                          onDismissed: (direction) {
+                            try {
+                              setState(() {
+                                // orderList.order.removeAt(index);
+                                debugPrint(
+                                    '=========>>>> $index ===== $direction');
+                              });
+                            } catch (e) {
+                              // print(e);
+                            }
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 70.0,
+                    top: 20.0,
+                  ),
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
-                      : MediaQuery.of(context).size.width / 1.1,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: orderList.order.length,
-                    itemBuilder: (context, index) {
-                      return OrderDtailsCard(
-                        indexKey: Key(index.toString()),
-                        imagePath: orderList.order[index].imagePath,
-                        name: orderList.order[index].name,
-                        title: orderList.order[index].title,
-                        amount: orderList.order[index].amount,
-                        onDismissed: (direction) {
-                          try {
-                            setState(() {
-                              // orderList.order.removeAt(index);
-                              debugPrint(
-                                  '=========>>>> $index ===== $direction');
-                            });
-                          } catch (e) {
-                            // print(e);
-                          }
-                        },
-                      );
-                    },
+                      : MediaQuery.of(context).size.width / 1.7,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    color: AppColor.kPrimary,
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/Pattern_order.png'),
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: MediaQuery.of(context).size.width < 600
-                    ? MediaQuery.of(context).size.width
-                    : MediaQuery.of(context).size.width / 1.7,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0),
-                  color: AppColor.kPrimary,
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/Pattern_order.png'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Sub-Total',
-                            style: AppTextStyle.kTextHeader3.copyWith(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Sub-Total',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              '120 \$',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Delivey Charge',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              '10 \$',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Discount',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              '20 \$',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Total',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                              ),
+                            ),
+                            Text(
+                              '$totalPrice \$',
+                              style: AppTextStyle.kTextHeader3.copyWith(
+                                color: AppColor.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ConfirmOrderScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
                               color: AppColor.white,
-                              fontWeight: FontWeight.normal,
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                          ),
-                          Text(
-                            '120 \$',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Delivey Charge',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                          Text(
-                            '10 \$',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Discount',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                          Text(
-                            '20 \$',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Total',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                            ),
-                          ),
-                          Text(
-                            '$totalPrice \$',
-                            style: AppTextStyle.kTextHeader3.copyWith(
-                              color: AppColor.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ConfirmOrderScreen(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColor.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          width: MediaQuery.of(context).size.width,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: Center(
-                              child: Text(
-                                'Place My Order',
-                                style: AppTextStyle.kTextHeader3.copyWith(
-                                  fontSize: 18.0,
-                                  color: AppColor.kPrimary,
+                            width: MediaQuery.of(context).size.width,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: Center(
+                                child: Text(
+                                  'Place My Order',
+                                  style: AppTextStyle.kTextHeader3.copyWith(
+                                    fontSize: 18.0,
+                                    color: AppColor.kPrimary,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -268,7 +276,6 @@ class _OrderDtailsCardState extends State<OrderDtailsCard> {
         ),
       ),
       onDismissed: (direction) {
-        //TODO: working on dismissable error on the widget tre
         widget.onDismissed;
       },
       child: Container(

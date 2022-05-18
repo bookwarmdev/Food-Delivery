@@ -57,6 +57,7 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 40),
                 child: Container(
+                  key: const Key('onbording1'),
                   height: 60,
                   width: 157,
                   decoration: const BoxDecoration(

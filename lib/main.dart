@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
       theme: ThemeData.light().copyWith(),
       darkTheme: ThemeData.dark().copyWith(),
       title: 'Food Ninja',

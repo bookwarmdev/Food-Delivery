@@ -13,6 +13,7 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('Onboard2Screen'),
       body: SafeArea(
         child: Column(
           children: [
