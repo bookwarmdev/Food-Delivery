@@ -14,10 +14,10 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column( 
-          children: [ 
+        child: Column(
+          children: [
             Image(
-              image: const  AssetImage("assets/images/Illustartion1.png"),
+              image: const AssetImage("assets/images/Illustartion1.png"),
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 1.7,
@@ -46,6 +46,7 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               ),
             ),
             GestureDetector(
+              key: const Key('onbording2'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
@@ -57,7 +58,6 @@ class _Onbording2ScreenState extends State<Onbording2Screen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 40),
                 child: Container(
-                  key: const Key('onbording1'),
                   height: 60,
                   width: 157,
                   decoration: const BoxDecoration(

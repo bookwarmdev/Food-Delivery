@@ -47,6 +47,7 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
               ),
             ),
             GestureDetector(
+              key: const Key("onbording3"),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
@@ -72,10 +73,13 @@ class _Onbording3ScreenState extends State<Onbording3Screen> {
                       ),
                       gradient: AppColor.authColor),
                   child: Center(
-                      child: Text('Next',
-                          style: AppTextStyle.kTextHeader3.copyWith(
-                            color: AppColor.white,
-                          ))),
+                    child: Text(
+                      'Next',
+                      style: AppTextStyle.kTextHeader3.copyWith(
+                        color: AppColor.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             )

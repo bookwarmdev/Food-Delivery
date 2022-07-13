@@ -12,6 +12,8 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  final email = TextEditingController();
+  final password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return AuthBackground(
@@ -56,7 +58,9 @@ class _LogInScreenState extends State<LogInScreen> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: TextField(
+                        key: const Key("email"),
                         obscureText: true,
+                        // controller: email,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -71,7 +75,9 @@ class _LogInScreenState extends State<LogInScreen> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: TextField(
+                        key: const Key("password"),
                         obscureText: true,
+                        // controller: password,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -205,6 +211,8 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
+                      // if (email.text.isEmpty) return print("Error email");
+                      // if (password.text.isEmpty) return print("Error password");
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -296,6 +304,8 @@ class _LogInScreenState extends State<LogInScreen> {
                     child: SizedBox(
                       width: 350,
                       child: TextField(
+                        controller: email,
+                        key: const Key("email"),
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -311,6 +321,8 @@ class _LogInScreenState extends State<LogInScreen> {
                     child: SizedBox(
                       width: 350,
                       child: TextField(
+                        controller: password,
+                        key: const Key("password"),
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -445,6 +457,8 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
+                      // if (email.text.isEmpty) return print("error email");
+                      // if (password.text.isEmpty) return print("error password");
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
