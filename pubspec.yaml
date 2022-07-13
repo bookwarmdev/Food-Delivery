@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -30,14 +30,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2 
-  flutter_svg: ^1.0.0 
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^1.0.0
   image_picker: ^0.8.4+4
-  google_maps_flutter: ^2.1.1 
-
+  google_maps_flutter: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -49,13 +47,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  flutter_config: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -67,6 +65,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svgs/
+    # - .evn
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -81,24 +80,24 @@ flutter:
   # example:
   fonts:
     - family: BentonSans_Regular
-      fonts: 
-        - asset: assets/fonts/BentonSans/BentonSansRegular.otf 
+      fonts:
+        - asset: assets/fonts/BentonSans/BentonSansRegular.otf
 
     - family: BentonSans_Black
       fonts:
-        - asset: assets/fonts/BentonSans/BentonSansBlack.otf 
+        - asset: assets/fonts/BentonSans/BentonSansBlack.otf
 
     - family: BentonSans_Bold
-      fonts: 
-        - asset: assets/fonts/BentonSans/BentonSansBold.otf 
+      fonts:
+        - asset: assets/fonts/BentonSans/BentonSansBold.otf
 
     - family: BentonSans_Book
-      fonts:  
-        - asset: assets/fonts/BentonSans/BentonSansBook.otf 
+      fonts:
+        - asset: assets/fonts/BentonSans/BentonSansBook.otf
 
     - family: BentonSans_Medium
-      fonts:   
-        - asset: assets/fonts/BentonSans/BentonSansMedium.otf 
+      fonts:
+        - asset: assets/fonts/BentonSans/BentonSansMedium.otf
 
     - family: Roboto
       fonts:
@@ -107,10 +106,10 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Variable.ttf
-        
+
     - family: Viga
       fonts:
         - asset: assets/fonts/Viga-Regular.ttf
-         
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
