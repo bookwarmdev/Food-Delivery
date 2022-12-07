@@ -90,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: TextField(
-                          obscureText: true,
+                          obscureText: _isObscure,
                           decoration: InputDecoration(
                             prefixIcon: const Image(
                               image: AssetImage("assets/icons/Lock.png"),
